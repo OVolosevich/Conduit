@@ -9,20 +9,13 @@ module.exports = {
     path: path.resolve(__dirname, "..", "dist"),
     filename: "bundle.js",
   },
-  // devServer: {
-  //   static: {
-  //     directory: path.join(__dirname, "..", "./dist"),
-  //   },
-  //   compress: true,
-  //   port: 9000,
-  // },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: "ts-loader",
         },
       },
       {

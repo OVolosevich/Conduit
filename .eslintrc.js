@@ -3,6 +3,7 @@ module.exports = {
     parserOptions: {
       ecmaVersion: 2020,
       sourceType: 'module',
+      project: './tsconfig.json'
     },
     settings: {
       react: {
@@ -10,11 +11,11 @@ module.exports = {
       },
     },
     extends: [
+      'airbnb',
+      'airbnb-typescript',
       'plugin:react/recommended',
       'plugin:react-hooks/recommended',
       'plugin:@typescript-eslint/recommended',
-      'plugin:import/errors',
-      'plugin:import/warnings',
       'plugin:import/typescript',
     ],
     rules: {

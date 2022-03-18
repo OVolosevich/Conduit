@@ -4,9 +4,9 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "..", "src/index.tsx"),
+  entry: path.resolve(__dirname, "..", "./src/index.tsx"),
   output: {
-    path: path.resolve(__dirname, "..", "dist"),
+    path: path.resolve(__dirname, "..", "./dist"),
     filename: "bundle.js",
   },
   module: {
@@ -34,14 +34,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "..", "src", "index.html"),
+      template: path.join(__dirname, "..", "./src", "index.html"),
     }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: "**/*",
-          context: path.resolve(__dirname, "..", "src", "components"),
+          context: path.resolve(__dirname, "..", "./src", "components"),
           to: "./components",
           noErrorOnMissing: true,
         },

@@ -51,6 +51,12 @@ module.exports = {
           to: "./styles",
           noErrorOnMissing: true,
         },
+        {
+          from: "**/*",
+          context: path.resolve(__dirname, "..", "./src", "assets"),
+          to: "./assets",
+          noErrorOnMissing: true,
+        },
       ],
     }),
   ],

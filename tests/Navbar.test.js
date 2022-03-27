@@ -2,9 +2,9 @@ import {
   getLinksForNavbar,
   linksForGuest,
   linksForUser,
-} from "./../src/components/Header/Navbar/services";
+} from '../src/components/Header/Navbar/services';
 
-describe("Header navbar", () => {
+describe('Header navbar', () => {
   const isVisitorInSystem = true;
   test("Switch links' sets", () => {
     expect(getLinksForNavbar(isVisitorInSystem)).toEqual(linksForUser);

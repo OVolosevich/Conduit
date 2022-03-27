@@ -1,8 +1,6 @@
 import React from 'react';
-import Header from './components/Header';
+import CommonPage from './pages/CommonPage';
 
-function App():JSX.Element {
-  return <div><Header /></div>;
-}
+const App: React.FC = () => <CommonPage />;
 
 export default App;

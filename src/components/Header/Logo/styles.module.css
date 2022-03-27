@@ -1,0 +1,9 @@
+.logo {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	font-family: var(--font-for-heading);
+	color: var(--main-white);
+	font-size: 40px;
+	cursor: pointer;
+}

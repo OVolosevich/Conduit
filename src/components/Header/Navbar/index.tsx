@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './styles.module.css';
 
 function Navbar(): JSX.Element {
   const [isVisitorInSystem, setVisitorInSystem] = useState(false);
@@ -6,9 +7,9 @@ function Navbar(): JSX.Element {
   const linksForUser: string[] = ['home', 'new article', 'settings', 'username'];
   const getLinksForNavbar = (): string[] => (isVisitorInSystem ? linksForUser : linksForGuest);
   return (
-    <nav>
-      <ul>
-        {getLinksForNavbar().map((item) => <li key={item}>{item}</li>)}
+    <nav className={styles.nav}>
+      <ul className={styles["nav__links-container"]}>
+        {getLinksForNavbar().map((item) => <li className={styles["nav__links"]} key={item}>{item}</li>)}
       </ul>
     </nav>
   );

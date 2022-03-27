@@ -1,0 +1,8 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	background-color:  var(--main-dark);
+	padding: 0 10px;
+	height: 80px;
+	border-radius: 0 0 10px 10px;
+}

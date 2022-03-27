@@ -1,0 +1,18 @@
+.footer {
+	background-color: var(--main-dark);
+	height: 80px;
+	border-radius: 10px 10px 0 0;
+}
+
+.footer__link {
+	height: 100%;
+	width: 100%;
+	color: var(--main-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer__icon {
+	padding: 10px;
+}

@@ -1,12 +1,12 @@
 import React from 'react';
 import Navbar from './Navbar';
+import Logo from './Logo';
 
-function Header(): JSX.Element {
-  return (
-    <header>
-      <Navbar />
-    </header>
-  );
-}
+const Header: React.FC = () => (
+  <header>
+    <Logo />
+    <Navbar />
+  </header>
+);
 
 export default Header;

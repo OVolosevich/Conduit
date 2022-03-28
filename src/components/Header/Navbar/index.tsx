@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './styles.module.css';
+import { unregisteredGuestData } from '../../../variables';
 
 function Navbar(): JSX.Element {
-  const [isVisitorInSystem, setVisitorInSystem] = useState<boolean>(false);
-  const linksForGuest: string[] = ['home', 'sign in', 'sign up'];
-  const linksForUser: string[] = ['home', 'new article', 'settings', 'username'];
-  const getLinksForNavbar = (): string[] => (isVisitorInSystem ? linksForUser : linksForGuest);
+  const { navbarLinks } = unregisteredGuestData;
   return (
     <nav className={styles.nav}>
       <ul className={styles['nav__links-container']}>
-        {getLinksForNavbar().map((item) => (
+        {navbarLinks.map((item) => (
           <li key={item}>
             <NavLink className={styles.nav__link} to={item === 'home' ? '/' : item.replace(' ', '-')}>
               {item}

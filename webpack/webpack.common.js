@@ -1,13 +1,14 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
   output: {
     path: path.resolve(__dirname, "..", "./dist"),
     filename: "bundle.js",
+    publicPath: "/"
   },
   module: {
     rules: [
@@ -55,6 +56,12 @@ module.exports = {
           from: "**/*",
           context: path.resolve(__dirname, "..", "./src", "assets"),
           to: "./assets",
+          noErrorOnMissing: true,
+        },
+        {
+          from: "**/*",
+          context: path.resolve(__dirname, "..", "./src", "pages"),
+          to: "./pages",
           noErrorOnMissing: true,
         },
       ],

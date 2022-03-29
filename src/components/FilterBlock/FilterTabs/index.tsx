@@ -1,11 +1,22 @@
 import React from 'react';
 import { unregisteredGuestData } from '../../../variables';
 
-const FilterTabs: React.FC = () => {
-  const { filterBlockTabs } = unregisteredGuestData;
+interface IFilterTabs {
+  tabs: string[],
+  setDefaultTabs: any,
+  setChosenTab: any
+}
+
+const FilterTabs: React.FC<IFilterTabs> = ({ tabs, setDefaultTabs, setChosenTab }) => {
+  const clickHandler = (tab: string): void => {
+    if (unregisteredGuestData.filterBlockTabs.includes(tab)) {
+      setChosenTab(tab);
+      setDefaultTabs([...unregisteredGuestData.filterBlockTabs]);
+    }
+  };
   return (
     <ul>
-      {filterBlockTabs.map((item) => <li key={item}>{item}</li>)}
+      {tabs.map((item) => <li key={item} onClick={() => clickHandler(item)}>{item}</li>)}
     </ul>
   );
 };

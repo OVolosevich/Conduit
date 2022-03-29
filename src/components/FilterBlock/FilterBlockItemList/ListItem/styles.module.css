@@ -1,0 +1,13 @@
+.list-item {
+	margin: 10px 0;
+	padding: 10px;
+	border: 2px solid var(--main-dark);
+	border-radius: 5px 5px 5px 5px/25px 25px 25px 5px;
+	display: grid;
+	 grid-template-areas: "CreationInfo CreationInfo LikesCounter"
+	 					  "ArticleTitle ArticleTitle ArticleTitle"
+						  "ArticleDescription ArticleDescription ArticleDescription"
+						  "ReadMoreLink Taglist Taglist";
+	grid-template-columns: 150px 1fr 150px;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+}

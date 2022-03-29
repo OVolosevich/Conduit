@@ -66,4 +66,6 @@ const articleData: IArticleItem[] = [
   },
 ];
 
-export default articleData;
+export {
+  articleData, IArticleItem, ICreationInfo, IArticleInfo,
+};

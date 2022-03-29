@@ -1,0 +1,7 @@
+.article__title {
+	grid-area: ArticleTitle;
+}
+
+.article__description {
+	grid-area: ArticleDescription;
+}

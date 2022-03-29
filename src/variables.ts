@@ -12,3 +12,5 @@ export const unregisteredGuestData: Idata = {
   navbarLinks: ['home', 'sign in', 'sign up'],
   filterBlockTabs: ['global feed'],
 };
+
+export const tagsList: string[] = ['welcome', 'implementations', 'codebaseShow', 'introduction'];

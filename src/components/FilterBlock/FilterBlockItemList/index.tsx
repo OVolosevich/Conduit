@@ -8,7 +8,7 @@ interface itemListProps {
 }
 
 const FilterBlockItemList = ({ articles }: itemListProps): JSX.Element => (
-  <div className="filter-block__list-container">
+  <div className={styles['filter-block__list-container']}>
     {articles.map((item) => <ListItem key={item.articleInfo.description} article={item} />)}
   </div>
 );

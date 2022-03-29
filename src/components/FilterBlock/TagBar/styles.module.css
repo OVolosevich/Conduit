@@ -1,0 +1,20 @@
+.tags-bar {
+	grid-row: 2/3;
+	grid-column: 2/3;
+	padding: 10px 20px;
+}
+
+.tags-bar__list {
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+.tags-bar__item {
+	border: 1px solid var(--main-grey);
+	padding: 5px;
+	margin: 10px;
+	border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+	cursor: pointer;
+}

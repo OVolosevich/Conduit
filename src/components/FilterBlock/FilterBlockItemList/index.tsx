@@ -3,11 +3,11 @@ import { IArticleItem } from '../data';
 import styles from './styles.module.css';
 import ListItem from './ListItem/index';
 
-interface itemListProps {
+interface IitemListProps {
   articles: Array<IArticleItem>
 }
 
-const FilterBlockItemList = ({ articles }: itemListProps): JSX.Element => (
+const FilterBlockItemList = ({ articles }: IitemListProps): JSX.Element => (
   <div className={styles['filter-block__list-container']}>
     {articles.map((item) => <ListItem key={item.articleInfo.description} article={item} />)}
   </div>

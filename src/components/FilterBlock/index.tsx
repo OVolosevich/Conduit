@@ -12,7 +12,10 @@ const FilterBlock: React.FC = () => {
   const allTabs = new Set([...defaultTabs, chosenTab]);
   return (
     <div className={styles['filter-block']}>
-      <FilterTabs setDefaultTabs={setDefaultTabs} setChosenTab={setChosenTab} tabs={Array.from(allTabs)} />
+      <FilterTabs
+        setDefaultTabs={setDefaultTabs}
+        setChosenTab={setChosenTab}
+        tabs={Array.from(allTabs)} />
       <FilterBlockItemList articles={articleData} />
       <TagsBar setTab={setChosenTab} tagsList={tagsList} />
     </div>

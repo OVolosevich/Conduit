@@ -1,13 +1,18 @@
-import React from 'react';
-import { unregisteredGuestData } from '../../../variables';
+import React, { useState } from "react";
+import { unregisteredGuestData } from "../../../variables";
+import styles from "./styles.module.css";
 
 interface IFilterTabs {
-  tabs: string[],
-  setDefaultTabs: React.Dispatch<React.SetStateAction<string[]>>,
-  setChosenTab: React.Dispatch<React.SetStateAction<string>>
+  chosenTab: string;
+  setChosenTab: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const FilterTabs: React.FC<IFilterTabs> = ({ tabs, setDefaultTabs, setChosenTab }) => {
+const FilterTabs: React.FC<IFilterTabs> = ({ chosenTab, setChosenTab }) => {
+  const [defaultTabs, setDefaultTabs] = useState<string[]>(
+    unregisteredGuestData.filterBlockTabs
+  );
+  const allTabs = Array.from(new Set([...defaultTabs, chosenTab]));
+
   const clickHandler = (tab: string): void => {
     if (unregisteredGuestData.filterBlockTabs.includes(tab)) {
       setChosenTab(tab);
@@ -15,8 +20,16 @@ const FilterTabs: React.FC<IFilterTabs> = ({ tabs, setDefaultTabs, setChosenTab 
     }
   };
   return (
-    <ul>
-      {tabs.map((item) => <li key={item} onClick={() => clickHandler(item)}>{item}</li>)}
+    <ul className={styles["filter-tabs"]}>
+      {allTabs.map((item) => (
+        <li
+          className={styles["filter-tabs__item"]}
+          key={item}
+          onClick={() => clickHandler(item)}
+        >
+          {item}
+        </li>
+      ))}
     </ul>
   );
 };

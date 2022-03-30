@@ -3,8 +3,8 @@ import { unregisteredGuestData } from '../../../variables';
 
 interface IFilterTabs {
   tabs: string[],
-  setDefaultTabs: any,
-  setChosenTab: any
+  setDefaultTabs: React.Dispatch<React.SetStateAction<string[]>>,
+  setChosenTab: React.Dispatch<React.SetStateAction<string>>
 }
 
 const FilterTabs: React.FC<IFilterTabs> = ({ tabs, setDefaultTabs, setChosenTab }) => {

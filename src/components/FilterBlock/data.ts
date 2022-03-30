@@ -18,7 +18,7 @@ interface IArticleItem {
   tags: string[]
 }
 
-const articleData: IArticleItem[] = [
+const articlesData: IArticleItem[] = [
   {
     creationInfo: {
       author: 'Gerome',
@@ -47,7 +47,7 @@ const articleData: IArticleItem[] = [
     likesNumber: 0,
     linkToArticle: '/',
     linkToAuthorPage: '/',
-    tags: ['codeBaseShow', 'implementations'],
+    tags: ['codebaseShow', 'implementations'],
   },
   {
     creationInfo: {
@@ -67,5 +67,5 @@ const articleData: IArticleItem[] = [
 ];
 
 export {
-  articleData, IArticleItem, ICreationInfo, IArticleInfo,
+  articlesData, IArticleItem, ICreationInfo, IArticleInfo,
 };

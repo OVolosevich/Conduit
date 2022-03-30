@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 
 interface iTagsBarProps {
   tagsList: string[],
-  setTab: any
+  setTab: React.Dispatch<React.SetStateAction<string>>
 }
 
 const TagsBar: React.FC<iTagsBarProps> = ({ tagsList, setTab }) => (

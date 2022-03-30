@@ -1,0 +1,10 @@
+.filter-tabs {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+
+.filter-tabs__item {
+    padding: 10px;
+
+}

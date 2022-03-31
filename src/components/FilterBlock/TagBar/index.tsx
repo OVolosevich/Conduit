@@ -1,20 +1,20 @@
 import React from 'react';
 import styles from './styles.module.css';
 
-interface iTagsBarProps {
+interface TagsBarProps {
   tagsList: string[],
   setTab: React.Dispatch<React.SetStateAction<string>>
 }
 
-const TagsBar: React.FC<iTagsBarProps> = ({ tagsList, setTab }) => (
+const TagsBar: React.FC<TagsBarProps> = (props) => (
   <div className={styles['tags-bar']}>
     <p>Popular tags</p>
     <div className={styles['tags-bar__list']}>
-      {tagsList.map((item) => (
+      {props.tagsList.map((item) => (
         <span
           className={styles['tags-bar__item']}
           key={item}
-          onClick={() => setTab(item)}
+          onClick={() => props.setTab(item)}
         >
           {item}
         </span>

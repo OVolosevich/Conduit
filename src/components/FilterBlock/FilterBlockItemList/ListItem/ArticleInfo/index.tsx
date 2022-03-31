@@ -1,9 +1,9 @@
 import React from 'react';
-import { IArticleInfo } from '../../../data';
+import { ArticleInfo } from '../../../data';
 import styles from './styles.module.css';
 
 interface ArticleInfoProps {
-  info: IArticleInfo
+  info: ArticleInfo
 }
 
 const ArticleInfo = ({ info }: ArticleInfoProps): JSX.Element => (

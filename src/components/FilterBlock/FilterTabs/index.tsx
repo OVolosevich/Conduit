@@ -7,7 +7,8 @@ interface IFilterTabs {
   setChosenTab: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const FilterTabs: React.FC<IFilterTabs> = ({ chosenTab, setChosenTab }) => {
+const FilterTabs: React.FC<IFilterTabs> = (props) => {
+  const { chosenTab, setChosenTab } = props;
   const [defaultTabs, setDefaultTabs] = useState<string[]>(
     unregisteredGuestData.filterBlockTabs
   );

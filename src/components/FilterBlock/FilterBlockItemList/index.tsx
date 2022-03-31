@@ -1,15 +1,15 @@
 import React from 'react';
-import { IArticleItem } from '../data';
+import { ArticleItem } from '../data';
 import styles from './styles.module.css';
 import ListItem from './ListItem/index';
 
-interface IitemListProps {
-  articles: Array<IArticleItem>
+interface ItemListProps {
+  articles: Array<ArticleItem>
 }
 
-const FilterBlockItemList = ({ articles }: IitemListProps): JSX.Element => (
+const FilterBlockItemList: React.FC<ItemListProps> = (props) => (
   <div className={styles['filter-block__list-container']}>
-    {articles.map((item) => <ListItem key={item.articleInfo.description} article={item} />)}
+    {props.articles.map((item) => <ListItem key={item.articleInfo.description} article={item} />)}
   </div>
 );
 

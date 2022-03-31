@@ -1,5 +1,5 @@
 import React from 'react';
-import { IArticleItem } from '../../data';
+import { ArticleItem } from '../../data';
 import CreationInfo from './CreationInfo';
 import styles from './styles.module.css';
 import ArticleInfo from './ArticleInfo/index';
@@ -8,15 +8,15 @@ import LikesNumber from './LikesNumber/index';
 import TagList from './TagList/index';
 
 interface ListItemProps {
-  article: IArticleItem
+  article: ArticleItem
 }
-const ListItem = ({ article }: ListItemProps): JSX.Element => (
+const ListItem: React.FC<ListItemProps> = (props) => (
   <div className={styles['list-item']}>
-    <CreationInfo creationInfo={article.creationInfo} />
-    <ArticleInfo info={article.articleInfo} />
-    <ReadMoreLink link={article.linkToArticle} />
-    <LikesNumber likesNumber={article.likesNumber} />
-    <TagList tags={article.tags} />
+    <CreationInfo creationInfo={props.article.creationInfo} />
+    <ArticleInfo info={props.article.articleInfo} />
+    <ReadMoreLink link={props.article.linkToArticle} />
+    <LikesNumber likesNumber={props.article.likesNumber} />
+    <TagList tags={props.article.tags} />
   </div>
 );
 

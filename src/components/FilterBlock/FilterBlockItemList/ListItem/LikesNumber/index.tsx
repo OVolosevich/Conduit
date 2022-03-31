@@ -5,10 +5,10 @@ interface LikesNumberProps {
   likesNumber: number
 }
 
-const LikesNumber = ({ likesNumber }: LikesNumberProps): JSX.Element => (
+const LikesNumber: React.FC<LikesNumberProps> = (props) => (
   <div className="list-item__likes-number-container">
     <i className="icon-heart" />
-    <span className="list-item__likes-number">{likesNumber}</span>
+    <span className="list-item__likes-number">{props.likesNumber}</span>
   </div>
 );
 

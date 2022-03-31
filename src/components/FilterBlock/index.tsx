@@ -7,7 +7,6 @@ import FilterBlockItemList from "./FilterBlockItemList";
 import TagsBar from "./TagBar";
 import styles from "./styles.module.css";
 
-
 const FilterBlock: React.FC = () => {
   const [chosenTab, setChosenTab] = useState<string>(
     unregisteredGuestData.filterBlockTabs[0]

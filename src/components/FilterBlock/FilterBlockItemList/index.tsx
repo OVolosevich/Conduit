@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticleItem } from '../data';
+import { ArticleItem } from '../../../pages/HomePage/services';
 import styles from './styles.module.css';
 import ListItem from './ListItem/index';
 
@@ -9,7 +9,7 @@ interface ItemListProps {
 
 const FilterBlockItemList: React.FC<ItemListProps> = (props) => (
   <div className={styles['filter-block__list-container']}>
-    {props.articles.map((item) => <ListItem key={item.articleInfo.description} article={item} />)}
+    {props.articles.map((item) => <ListItem key={item.description} article={item} />)}
   </div>
 );
 

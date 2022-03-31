@@ -1,15 +1,15 @@
 import React from 'react';
-import { ArticleInfo } from '../../../data';
 import styles from './styles.module.css';
 
 interface ArticleInfoProps {
-  info: ArticleInfo
+  description: string
+  title: string
 }
 
-const ArticleInfo = ({ info }: ArticleInfoProps): JSX.Element => (
+const ArticleInfo: React.FC<ArticleInfoProps> = (props) => (
   <>
-    <p className={styles.article__title}>{info.title}</p>
-    <p className={styles.article__description}>{info.description}</p>
+    <p className={styles.article__title}>{props.title}</p>
+    <p className={styles.article__description}>{props.description}</p>
   </>
 );
 

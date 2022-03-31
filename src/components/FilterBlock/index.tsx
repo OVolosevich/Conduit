@@ -1,21 +1,31 @@
-import React, { useState } from "react";
-import { articlesData as articles } from "./data";
-import { tagsList, unregisteredGuestData } from "../../variables";
+import React, { useState, useEffect } from 'react';
+import { tagsList, unregisteredGuestData } from '../../variables';
 import { getFilteredArticles } from './services';
-import FilterTabs from "./FilterTabs";
-import FilterBlockItemList from "./FilterBlockItemList";
-import TagsBar from "./TagBar";
-import styles from "./styles.module.css";
+import FilterTabs from './FilterTabs';
+import FilterBlockItemList from './FilterBlockItemList';
+import TagsBar from './TagBar';
+import styles from './styles.module.css';
+import { ArticleItem } from '../../pages/HomePage/services';
 
-const FilterBlock: React.FC = () => {
+interface FilterBlockProps {
+  articlesList: ArticleItem[]
+}
+
+const FilterBlock: React.FC<FilterBlockProps> = (props) => {
+  const { articlesList } = props;
   const [chosenTab, setChosenTab] = useState<string>(
-    unregisteredGuestData.filterBlockTabs[0]
+    unregisteredGuestData.filterBlockTabs[0],
   );
-  const filteredArticles = getFilteredArticles(articles, chosenTab);
+  const [areArticlesPresent, setArticlesPresent] = useState<boolean>(false);
+  useEffect(() => {
+    setArticlesPresent(true);
+  }, [articlesList]);
   return (
-    <div className={styles["filter-block"]}>
+    <div className={styles['filter-block']}>
       <FilterTabs setChosenTab={setChosenTab} chosenTab={chosenTab} />
-      <FilterBlockItemList articles={filteredArticles} />
+      {areArticlesPresent
+        ? <FilterBlockItemList articles={getFilteredArticles(articlesList, chosenTab)} />
+        : 'Loading'}
       <TagsBar setTab={setChosenTab} tagsList={tagsList} />
     </div>
   );

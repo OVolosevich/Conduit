@@ -1,24 +1,24 @@
-interface ICreationInfo {
+interface CreationInfo {
   author: string,
   authorAvatarUrl: string,
   date: string
 }
 
-interface IArticleInfo {
+interface ArticleInfo {
   title: string,
   description: string
 }
 
-interface IArticleItem {
-  creationInfo: ICreationInfo,
-  articleInfo: IArticleInfo,
+interface ArticleItem {
+  creationInfo: CreationInfo,
+  articleInfo: ArticleInfo,
   likesNumber: number,
   linkToArticle: string,
   linkToAuthorPage: string,
   tags: string[]
 }
 
-const articlesData: IArticleItem[] = [
+const articlesData: ArticleItem[] = [
   {
     creationInfo: {
       author: 'Gerome',
@@ -67,5 +67,5 @@ const articlesData: IArticleItem[] = [
 ];
 
 export {
-  articlesData, IArticleItem, ICreationInfo, IArticleInfo,
+  articlesData, ArticleItem, CreationInfo, ArticleInfo,
 };

@@ -1,13 +1,13 @@
 import React from 'react';
-import { ICreationInfo } from '../../../data';
+import { CreationInfo } from '../../../data';
 import styles from './styles.module.css';
 
 interface CreationInfoProps {
-  creationInfo: ICreationInfo
+  creationInfo: CreationInfo
 }
 
-const CreationInfo = ({ creationInfo }: CreationInfoProps): JSX.Element => {
-  const { author, authorAvatarUrl, date } = creationInfo;
+const CreationInfo: React.FC<CreationInfoProps> = (props) => {
+  const { author, authorAvatarUrl, date } = props.creationInfo;
   return (
     <div className={styles['creation-info']}>
       <img

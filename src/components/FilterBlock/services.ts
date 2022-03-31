@@ -1,5 +1,5 @@
-import { IArticleItem } from "./data";
-export const getFilteredArticles = (allArticles: IArticleItem[], activeTab: string): IArticleItem[] => {
+import { ArticleItem } from "./data";
+export const getFilteredArticles = (allArticles: ArticleItem[], activeTab: string): ArticleItem[] => {
 	return activeTab === "global feed" ?
 		[...allArticles]
 		:

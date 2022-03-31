@@ -15,4 +15,35 @@
 
 .header {
 	font-family: var(--font-for-heading);
+	font-size: 2.5rem;
+}
+
+.header__red-letter {
+	color: var(--main-red);
+	font-size: 2.5rem;
+	font-weight: 700;
+}
+.header__orange-letter {
+	color: var(--main-orange);
+	font-size: 2.5rem;
+}
+.header__yellow-letter {
+	color: var(--main-yellow);
+	font-size: 2.5rem;
+}
+.header__green-letter {
+	color: var(--main-green);
+	font-size: 2.5rem;
+}
+.header__blue-letter {
+	color: var(--main-light-blue);
+	font-size: 2.5rem;
+}
+.header__dark-blue-letter {
+	color: var(--main-dark-blue);
+	font-size: 2.5rem;
+}
+.header__purple-letter {
+	color: var(--main-purple);
+	font-size: 2.5rem;
 }

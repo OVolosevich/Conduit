@@ -1,0 +1,4 @@
+.tag-list {
+	grid-area: Taglist;
+	justify-self: end;
+}

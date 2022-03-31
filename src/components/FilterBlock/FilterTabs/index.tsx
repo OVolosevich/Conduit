@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { unregisteredGuestData } from "../../../variables";
-import styles from "./styles.module.css";
+import React, { useState } from 'react';
+import { unregisteredGuestData } from '../../../variables';
+import styles from './styles.module.css';
 
 interface IFilterTabs {
   chosenTab: string;
@@ -10,7 +10,7 @@ interface IFilterTabs {
 const FilterTabs: React.FC<IFilterTabs> = (props) => {
   const { chosenTab, setChosenTab } = props;
   const [defaultTabs, setDefaultTabs] = useState<string[]>(
-    unregisteredGuestData.filterBlockTabs
+    unregisteredGuestData.filterBlockTabs,
   );
   const allTabs = Array.from(new Set([...defaultTabs, chosenTab]));
 
@@ -21,10 +21,10 @@ const FilterTabs: React.FC<IFilterTabs> = (props) => {
     }
   };
   return (
-    <ul className={styles["filter-tabs"]}>
+    <ul className={styles['filter-tabs']}>
       {allTabs.map((item) => (
         <li
-          className={styles["filter-tabs__item"]}
+          className={styles['filter-tabs__item']}
           key={item}
           onClick={() => clickHandler(item)}
         >

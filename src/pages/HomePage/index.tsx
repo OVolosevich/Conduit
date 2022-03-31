@@ -7,16 +7,15 @@ const HomePage: React.FC = () => {
   const [articlesList, setArticlesList] = useState<ArticleItem[]>([]);
   useEffect(() => {
     const data = getArticles();
-    data.then(res => setArticlesList(res.articles))
-  }, [])
+    data.then((res) => setArticlesList(res.articles));
+  }, []);
 
-  console.log(articlesList)
   return (
     <div>
       <Banner />
-      <FilterBlock />
+      <FilterBlock articlesList={articlesList} />
     </div>
-  )
+  );
 };
 
 export default HomePage;

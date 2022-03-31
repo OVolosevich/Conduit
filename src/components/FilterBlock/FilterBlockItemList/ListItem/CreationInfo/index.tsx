@@ -1,13 +1,20 @@
 import React from 'react';
-import { CreationInfo } from '../../../data';
 import styles from './styles.module.css';
 
+interface AuthorInfo {
+  username: string
+  bio: unknown,
+  image: string,
+  following: boolean
+}
+
 interface CreationInfoProps {
-  creationInfo: CreationInfo
+  creationDate: string
+  authorInfo: AuthorInfo
 }
 
 const CreationInfo: React.FC<CreationInfoProps> = (props) => {
-  const { author, authorAvatarUrl, date } = props.creationInfo;
+  const { authorInfo, creationDate } = props;
   return (
     <div className={styles['creation-info']}>
       <img
@@ -15,10 +22,10 @@ const CreationInfo: React.FC<CreationInfoProps> = (props) => {
         alt="autor avatar"
         width="30px"
         height="30px"
-        src={authorAvatarUrl}
+        src={authorInfo.image}
       />
-      <p>{author}</p>
-      <p>{date}</p>
+      <p>{authorInfo.username}</p>
+      <p>{creationDate}</p>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticleItem } from '../../../../pages/HomePage/services';
+import { ArticleItem } from '../../../../Shared';
 import CreationInfo from './CreationInfo';
 import styles from './styles.module.css';
 import ArticleInfo from './ArticleInfo/index';

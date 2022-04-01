@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticleItem } from '../../../pages/HomePage/services';
+import { ArticleItem } from '../../../Shared';
 import styles from './styles.module.css';
 import ListItem from './ListItem/index';
 

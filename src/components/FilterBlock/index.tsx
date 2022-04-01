@@ -5,7 +5,7 @@ import FilterTabs from './FilterTabs';
 import FilterBlockItemList from './FilterBlockItemList';
 import TagsBar from './TagBar';
 import styles from './styles.module.css';
-import { ArticleItem } from '../../pages/HomePage/services';
+import { ArticleItem } from '../../Shared';
 
 interface FilterBlockProps {
   articlesList: ArticleItem[]

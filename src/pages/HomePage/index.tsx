@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../../components/Banner';
 import FilterBlock from '../../components/FilterBlock';
-import { getArticles, ArticleItem } from './services';
+import { getArticles } from './services';
+import { ArticleItem } from '../../Shared';
 
 const HomePage: React.FC = () => {
   const [articlesList, setArticlesList] = useState<ArticleItem[]>([]);

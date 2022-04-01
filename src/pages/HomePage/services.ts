@@ -1,26 +1,9 @@
-interface ArticleAuthor {
-  bio: unknown
-  following: boolean
-  image: string
-  username: string
-}
-interface ArticleItem {
-  author: ArticleAuthor,
-  body: string
-  createdAt: string
-  description: string
-  favorited: boolean
-  favoritesCount: number
-  slug: string
-  tagList: string[]
-  title: string
-  updatedAt: string
-}
+import { ArticleItem } from "../../Shared";
 
-const getArticles = async ():Promise<ArticleItem[]> => {
-  const response = await fetch('https://api.realworld.io/api/articles');
+const getArticles = async (): Promise<ArticleItem[]> => {
+  const response = await fetch("https://api.realworld.io/api/articles");
   const data = await response.json();
   return data.articles;
 };
 
-export { getArticles, ArticleItem };
+export { getArticles };

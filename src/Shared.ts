@@ -1,5 +1,5 @@
 interface ArticleAuthor {
-    bio: unknown
+    bio: string
     following: boolean
     image: string
     username: string

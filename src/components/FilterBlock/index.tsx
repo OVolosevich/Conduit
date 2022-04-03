@@ -16,7 +16,6 @@ const FilterBlock: React.FC<FilterBlockProps> = (props) => {
   const [chosenTab, setChosenTab] = useState<string>(
     unregisteredGuestData.filterBlockTabs[0]
   );
-
   return (
     <div className={styles["filter-block"]}>
       <FilterTabs setChosenTab={setChosenTab} chosenTab={chosenTab} />

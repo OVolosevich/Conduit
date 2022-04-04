@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../../components/Banner';
 import FilterBlock from '../../components/FilterBlock';
-import { getArticles } from './services';
+import  ApiClient  from '../../ApiClient';
 import { ArticleItem } from '../../Shared';
 
 const HomePage: React.FC = () => {
   const [articlesList, setArticlesList] = useState<ArticleItem[]>([]);
   useEffect(() => {
-    const data = getArticles();
+    const data = ApiClient.getArticles();
     data.then((articles) => setArticlesList(articles));
   }, []);
 

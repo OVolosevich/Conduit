@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 
 const Banner: React.FC = () => (
   <div className={styles.banner}>
-    <h1 className={styles.header}>
+    <h1 title="logo" className={styles.header}>
       <span className={styles['header__red-letter']}>C</span>
       <span className={styles['header__orange-letter']}>o</span>
       <span className={styles['header__yellow-letter']}>n</span>

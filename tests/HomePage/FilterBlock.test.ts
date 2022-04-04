@@ -1,12 +1,12 @@
-import { getFilteredArticles } from "./../../src/components/FilterBlock/services";
-import { tagsList } from "./../../src/variables";
+import { getFilteredArticles } from "../../src/components/FilterBlock/services";
+import { tagsList } from "../../src/variables";
 
 describe("getFilteredArticles fn from FilterBlock", () => {
   const articlesData = [
     {
       author: {
         username: "Gerome",
-        bio: null,
+        bio: "",
         image: "https://api.realworld.io/images/demo-avatar.png",
         following: false,
       },
@@ -23,7 +23,7 @@ describe("getFilteredArticles fn from FilterBlock", () => {
     {
       author: {
         username: "Gerome",
-        bio: null,
+        bio: "",
         image: "https://api.realworld.io/images/demo-avatar.png",
         following: false,
       },
@@ -41,7 +41,7 @@ describe("getFilteredArticles fn from FilterBlock", () => {
     {
       author: {
         username: "Gerome",
-        bio: null,
+        bio: "",
         image: "https://api.realworld.io/images/demo-avatar.png",
         following: false,
       },

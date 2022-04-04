@@ -6,6 +6,7 @@ import FilterBlockItemList from "./FilterBlockItemList";
 import TagsBar from "./TagBar";
 import styles from "./styles.module.css";
 import { ArticleItem } from "../../Shared";
+import Preloader from "../Preloader";
 
 interface FilterBlockProps {
   articlesList: ArticleItem[] | undefined;
@@ -19,13 +20,15 @@ const FilterBlock: React.FC<FilterBlockProps> = (props) => {
   return (
     <div className={styles["filter-block"]}>
       <FilterTabs setChosenTab={setChosenTab} chosenTab={chosenTab} />
-      {articlesList && articlesList.length > 0 ? (
-        <FilterBlockItemList
-          articles={getFilteredArticles(articlesList!, chosenTab)}
-        />
-      ) : (
-        "Loading"
-      )}
+      <div className={styles["filter-block__content"]}>
+        {articlesList && articlesList.length > 0 ? (
+          <FilterBlockItemList
+            articles={getFilteredArticles(articlesList!, chosenTab)}
+          />
+        ) : (
+          <Preloader/>
+        )}
+      </div>
       <TagsBar setTab={setChosenTab} tagsList={tagsList} />
     </div>
   );

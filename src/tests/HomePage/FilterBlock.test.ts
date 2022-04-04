@@ -1,5 +1,5 @@
-import { getFilteredArticles } from "../../src/components/FilterBlock/services";
-import { tagsList } from "../../src/variables";
+import { getFilteredArticles } from "../../components/FilterBlock/services";
+import { tagsList } from "../../variables";
 
 describe("getFilteredArticles fn from FilterBlock", () => {
   const articlesData = [

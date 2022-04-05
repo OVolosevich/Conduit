@@ -18,7 +18,7 @@ const FilterBlock: React.FC<FilterBlockProps> = (props) => {
     unregisteredGuestData.filterBlockTabs[0]
   );
   return (
-    <div className={styles["filter-block"]}>
+    <div data-testid="filter-block" className={styles["filter-block"]}>
       <FilterTabs setChosenTab={setChosenTab} chosenTab={chosenTab} />
       <div className={styles["filter-block__content"]}>
         {articlesList && articlesList.length > 0 ? (

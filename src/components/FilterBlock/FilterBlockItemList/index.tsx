@@ -8,7 +8,7 @@ interface ItemListProps {
 }
 
 const FilterBlockItemList: React.FC<ItemListProps> = (props) => (
-  <div>
+  <div data-testid="filter-block-item-list">
     {props.articles.map((item) => <ListItem key={item.description} article={item} />)}
   </div>
 );

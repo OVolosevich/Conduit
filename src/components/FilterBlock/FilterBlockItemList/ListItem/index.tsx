@@ -16,7 +16,7 @@ const ListItem: React.FC<ListItemProps> = (props) => {
     author, createdAt, description, title, favoritesCount, tagList,
   } = article;
   return (
-    <div className={styles['list-item']}>
+    <div data-testid="list-item" className={styles['list-item']}>
       <CreationInfo authorInfo={author} creationDate={createdAt} />
       <ArticleInfo description={description} title={title} />
       <ReadMoreLink link="/" />

@@ -21,7 +21,7 @@ const FilterTabs: React.FC<IFilterTabs> = (props) => {
     }
   };
   return (
-    <ul className={styles['filter-tabs']}>
+    <ul data-testid="filter-tabs" className={styles['filter-tabs']}>
       {allTabs.map((item) => (
         <li
           className={styles['filter-tabs__item']}

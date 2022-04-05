@@ -6,7 +6,7 @@ import { unregisteredGuestData } from '../../../variables';
 function Navbar(): JSX.Element {
   const { navbarLinks } = unregisteredGuestData;
   return (
-    <nav className={styles.nav}>
+    <nav role="navigation" className={styles.nav}>
       <ul className={styles['nav__links-container']}>
         {navbarLinks.map((item) => (
           <li key={item}>

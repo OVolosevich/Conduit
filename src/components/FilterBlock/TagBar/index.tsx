@@ -7,7 +7,7 @@ interface TagsBarProps {
 }
 
 const TagsBar: React.FC<TagsBarProps> = (props) => (
-  <div className={styles['tags-bar']}>
+  <div data-testid="tagbar" className={styles['tags-bar']}>
     <p>Popular tags</p>
     <div className={styles['tags-bar__list']}>
       {props.tagsList.map((item) => (

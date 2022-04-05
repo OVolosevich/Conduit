@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 const Preloader: React.FC = () => {
   return (
-    <div className={styles.preloader}>
+    <div data-testid="preloader" className={styles.preloader}>
       <p>Loading</p>
     </div>
   );

@@ -12,10 +12,10 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <Banner />
       <FilterBlock articlesList={articlesList} />
-    </div>
+    </>
   );
 };
 

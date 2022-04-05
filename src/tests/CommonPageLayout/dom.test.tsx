@@ -5,31 +5,31 @@ import React from "react";
 import "@testing-library/jest-dom";
 
 describe("Header", () => {
-  test("shows logo", () => {
+  beforeEach(()=> {
     render(
       <BrowserRouter>
         <CommonPageLayout />
       </BrowserRouter>
     );
+  });
+  test("shows logo", () => {
     expect(screen.getByText("conduit")).toBeInTheDocument();
   });
   test("shows navigation", () => {
-    render(
-      <BrowserRouter>
-        <CommonPageLayout />
-      </BrowserRouter>
-    );
     expect(screen.getByRole("navigation")).toBeInTheDocument();
   });
 });
 
 describe("Footer", () => {
-  test("shows footer link", () => {
+
+  beforeEach(()=> {
     render(
       <BrowserRouter>
         <CommonPageLayout />
       </BrowserRouter>
     );
+  });
+    test("shows footer link", () => {
     expect(screen.getByText("GitHub")).toBeInTheDocument();
   });
 });

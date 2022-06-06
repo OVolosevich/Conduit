@@ -1,4 +1,4 @@
-import { ArticleItem } from "../../Shared";
+import { ArticleItem } from '../../Shared';
 
 export const getFilteredArticles = (allArticles: ArticleItem[], activeTab: string): ArticleItem[] => (
   activeTab === 'global feed'

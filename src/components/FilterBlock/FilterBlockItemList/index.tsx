@@ -7,10 +7,13 @@ interface ItemListProps {
   articles: Array<ArticleItem>
 }
 
-const FilterBlockItemList: React.FC<ItemListProps> = (props) => (
-  <div data-testid="filter-block-item-list">
-    {props.articles.map((item) => <ListItem key={item.description} article={item} />)}
-  </div>
-);
+const FilterBlockItemList: React.FC<ItemListProps> = (props) => {
+  const { articles } = props;
+  return (
+    <div data-testid="filter-block-item-list">
+      {articles.map((item) => <ListItem key={item.description} article={item} />)}
+    </div>
+  );
+};
 
 export default FilterBlockItemList;

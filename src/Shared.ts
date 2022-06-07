@@ -3,7 +3,7 @@ interface ArticleAuthor {
   following: boolean
   image: string
   username: string
-};
+}
 
 interface ArticleItem {
   author: ArticleAuthor,
@@ -16,12 +16,12 @@ interface ArticleItem {
   tagList: string[]
   title: string
   updatedAt: string
-};
+}
 
 const enum BreakPoints {
   mobile = 320,
   tablet = 768,
   desktop = 1024,
   maximum = 1300,
-};
+}
 export { ArticleItem, BreakPoints };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { tagsList, unregisteredGuestData } from '../../variables';
-import { getFilteredArticles } from './services';
+import getFilteredArticles from './services';
 import FilterTabs from './FilterTabs';
 import FilterBlockItemList from './FilterBlockItemList';
 import TagsBar from './TagBar';

@@ -5,11 +5,14 @@ interface LikesNumberProps {
   likesNumber: number
 }
 
-const LikesNumber: React.FC<LikesNumberProps> = (props) => (
-  <div className="list-item__likes-number-container">
-    <i className="icon-heart" />
-    <span className="list-item__likes-number">{props.likesNumber}</span>
-  </div>
-);
+const LikesNumber: React.FC<LikesNumberProps> = (props) => {
+  const { likesNumber } = props;
+  return (
+    <div className="list-item__likes-number-container">
+      <i className="icon-heart" />
+      <span className="list-item__likes-number">{likesNumber}</span>
+    </div>
+  );
+};
 
 export default LikesNumber;

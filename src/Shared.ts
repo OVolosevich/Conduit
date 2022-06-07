@@ -16,4 +16,11 @@ interface ArticleItem {
   title: string
   updatedAt: string
 }
-export { ArticleItem };
+
+const enum BreakPoints {
+  mobile = 320,
+  tablet = 768,
+  desktop = 1024,
+  maximum = 1300,
+}
+export { ArticleItem, BreakPoints };

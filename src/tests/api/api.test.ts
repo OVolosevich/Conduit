@@ -61,7 +61,7 @@ describe('ApiClient', () => {
     expect(result).toBeInstanceOf(Array);
   });
   getArticles.mockImplementationOnce(() => {
-    Promise.reject('error');
+    Promise.reject(new Error('problem in getArticles'));
     return [];
   });
   test('returns empty array', async () => {

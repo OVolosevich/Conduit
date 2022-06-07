@@ -1,4 +1,4 @@
-import { getFilteredArticles } from '../../components/FilterBlock/services';
+import getFilteredArticles from '../../components/FilterBlock/services';
 import { tagsList } from '../../variables';
 
 describe('getFilteredArticles fn from FilterBlock', () => {

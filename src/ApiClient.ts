@@ -3,21 +3,21 @@ import { ArticleItem } from './Shared';
 class ApiClient {
   static api_base = 'https://api.realworld.io/api/';
 
-  static getArticles = async (): Promise<ArticleItem[]> => {
+  static getArticles = async () => {
     let result = [];
     try {
       const response = await fetch(`${this.api_base}articles`);
       if (response.status === 200) {
         const data = await response.json();
         result = data.articles;
-      } else {
-        throw new Error(response.status.toString());
+        return result;
       }
+      return new Error(response.status.toString());
     } catch (e: any) {
       console.log(e, 'error');
-    } finally {
-      return result;
     }
+
+    return result;
   };
 }
 

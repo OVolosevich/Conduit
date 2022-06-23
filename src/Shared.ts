@@ -23,4 +23,21 @@ const enum BreakPoints {
   desktop = 1024,
   maximum = 1300,
 }
-export { ArticleItem, BreakPoints };
+
+interface RegisterUserResponse {
+  email: string,
+  token: string,
+  username: string,
+  bio: string,
+  image: null
+}
+
+interface User {
+  email: string,
+  username: string,
+  password: string
+}
+
+export {
+  ArticleItem, BreakPoints, RegisterUserResponse, User,
+};

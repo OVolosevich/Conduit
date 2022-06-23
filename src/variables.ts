@@ -21,7 +21,7 @@ export const unregisteredGuestData: Idata = {
   signUpInputs: [
     {
       type: 'text',
-      name: 'userName',
+      name: 'username',
       label: 'Name',
       labelId: 'signUpName',
     },

@@ -1,15 +1,21 @@
-import { ArticleItem } from './Shared';
+import axios from 'axios';
+import { ArticleItem, RegisterUserResponse, User } from './Shared';
 
 class ApiClient {
   static api_base = 'https://api.realworld.io/api/';
 
   static getArticles = async ():Promise<ArticleItem[]> => {
-    let result = [];
-    const response = await fetch(`${this.api_base}articles`);
+    const response = await axios.get(`${this.api_base}articles`);
     if (response.status === 200) {
-      const data = await response.json();
-      result = data.articles;
-      return result;
+      return response.data.articles;
+    }
+    throw new Error(response.status.toString());
+  };
+
+  static registerUser = async (user: User) => {
+    const response = await axios.post(`${this.api_base}users`, { user });
+    if (response.status === 200) {
+      return response;
     }
     throw new Error(response.status.toString());
   };

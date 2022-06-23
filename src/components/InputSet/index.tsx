@@ -1,11 +1,9 @@
 import React from 'react';
 import { Input } from '../../variables';
+import { User } from '../../Shared';
 import styles from './styles.module.css';
 
-interface InputsStatesSignature {
-  userName: string;
-  email: string;
-  password: string;
+interface InputsStatesSignature extends User {
   [key: string]: string;
 }
 

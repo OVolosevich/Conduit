@@ -23,7 +23,7 @@ const FilterBlock: React.FC<FilterBlockProps> = (props) => {
       <div className={styles['filter-block__content']}>
         {articlesList && articlesList.length > 0 ? (
           <FilterBlockItemList
-            articles={getFilteredArticles(articlesList!, chosenTab)}
+            articles={getFilteredArticles(articlesList, chosenTab)}
           />
         ) : (
           <Preloader />

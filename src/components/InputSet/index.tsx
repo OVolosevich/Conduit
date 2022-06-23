@@ -15,8 +15,7 @@ interface InputSetProps {
   setValue: React.Dispatch<React.SetStateAction<InputsStatesSignature>>;
 }
 
-const InputSet: React.FC<InputSetProps> = (props) => {
-  const { item } = props;
+const InputSet: React.FC<InputSetProps> = ({ item, value, setValue }) => {
   const {
     type, name, label, labelId,
   } = item;
@@ -27,8 +26,8 @@ const InputSet: React.FC<InputSetProps> = (props) => {
         id={labelId}
         type={type}
         name={name}
-        value={props.value}
-        onChange={(e) => props.setValue((prev) => ({ ...prev, [name]: e.target.value }))}
+        value={value}
+        onChange={(e) => setValue((prev) => ({ ...prev, [name]: e.target.value }))}
       />
     </div>
   );

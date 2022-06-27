@@ -7,8 +7,8 @@ import { ArticleItem } from '../../Shared';
 const HomePage: React.FC = () => {
   const [articlesList, setArticlesList] = useState<ArticleItem[]>([]);
   useEffect(() => {
-    const data = ApiClient.getArticles();
-    data.then((articles) => setArticlesList(articles));
+    ApiClient.getArticles()
+    .then((articles) => setArticlesList(articles));
   }, []);
 
   return (

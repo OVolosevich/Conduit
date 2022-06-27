@@ -15,9 +15,9 @@ class ApiClient {
   static registerUser = async (user: User) => {
     const response = await axios.post(`${this.api_base}users`, { user });
     if (response.status === 200) {
-      return response;
+      return response.data.user;
     }
-    throw new Error(response.status.toString());
+    throw new Error("registerUser fn fails");
   };
 }
 

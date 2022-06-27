@@ -1,71 +1,108 @@
-describe('ApiClient', () => {
-  const articlesData = [
-    {
-      author: {
-        username: 'Gerome',
-        bio: '',
-        image: 'https://api.realworld.io/images/demo-avatar.png',
-        following: false,
-      },
-      body: 'Share your knowledge and enpower the community by creating a new implementation',
-      createdAt: '2021-11-24T12:11:08.212Z',
-      description: 'join the community by creating a new implementation',
-      favorited: false,
-      favoritesCount: 1730,
-      slug: 'Create-a-new-implementation-1',
-      tagList: ['implementations'],
-      title: 'Create a new implementation',
-      updatedAt: '2021-11-24T12:11:08.212Z',
-    },
-    {
-      author: {
-        username: 'Gerome',
-        bio: '',
-        image: 'https://api.realworld.io/images/demo-avatar.png',
-        following: false,
-      },
-      body: 'Over 100 implementations have been created using various languages, libraries, and frameworks.\n\nExplore them on CodebaseShow.',
-      createdAt: '2021-11-24T12:11:07.952Z',
-      description:
-        'discover the implementations created by the RealWorld community',
-      favorited: false,
-      favoritesCount: 1076,
-      slug: 'Explore-implementations-1',
-      tagList: ['codebaseShow', 'implementations'],
-      title: 'Explore implementations',
-      updatedAt: '2021-11-24T12:11:07.952Z',
-    },
-    {
-      author: {
-        username: 'Gerome',
-        bio: '',
-        image: 'https://api.realworld.io/images/demo-avatar.png',
-        following: false,
-      },
-      body: 'See how the exact same Medium.com clone (called Conduit) is built using different frontends and backends. Yes, you can mix and match them, because they all adhere to the same API spec',
-      createdAt: '2021-11-24T12:11:07.557Z',
-      description:
-        'Exemplary fullstack Medium.com clone powered by React, Angular, Node, Django, and many more',
-      favorited: false,
-      favoritesCount: 736,
-      slug: 'Welcome-to-RealWorld-project-1',
-      tagList: ['welcome', 'introduction'],
-      title: 'Welcome to RealWorld project',
-      updatedAt: '2021-11-24T12:11:07.557Z',
-    },
-  ];
-  const getArticles = jest.fn();
-  getArticles.mockImplementationOnce(() => Promise.resolve([...articlesData]));
-  test('returns array', async () => {
-    const result = await getArticles();
-    expect(result).toBeInstanceOf(Array);
+import axios, { AxiosError } from "axios";
+import ApiClient from "../../ApiClient";
+import assert from "assert";
+
+jest.mock("axios");
+const mockedAxios = jest.mocked(axios, true);
+
+describe("ApiClient.registerUser", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
   });
-  getArticles.mockImplementationOnce(() => {
-    Promise.reject(new Error('problem in getArticles'));
-    return [];
+
+  it("returns a user object", async () => {
+    const user = {
+      username: "username",
+      email: "email",
+      password: "password",
+      token: "token",
+      image: null,
+      bio: null,
+    };
+
+    mockedAxios.post.mockResolvedValueOnce({
+      status: 200,
+      data: {
+        user,
+      },
+    });
+
+    const result = await ApiClient.registerUser({
+      username: "username",
+      email: "email",
+      password: "password",
+    });
+
+    expect(mockedAxios.post).toHaveBeenCalledTimes(1);
+    expect(result).toEqual(user);
   });
-  test('returns empty array', async () => {
-    const result = await getArticles();
-    expect(result).toBeInstanceOf(Array);
+
+  it("throws an error if user info is empty", async () => {
+    const responseOnFail = {
+      message: "fails",
+      response: {
+        status: 422,
+        data: {
+          errors: ["can't be blank"],
+        },
+      },
+    };
+    const emptyUser = {
+      username: "",
+      email: "",
+      password: "",
+    };
+
+    mockedAxios.post.mockRejectedValueOnce(responseOnFail);
+    try {
+      await ApiClient.registerUser(emptyUser);
+      assert.fail("mustn't go here");
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        expect(error.response?.status).toBe(422);
+      }
+    } finally {
+      expect(mockedAxios.post).toHaveBeenCalledTimes(1);
+    }
+  });
+
+  it("throws network error if url is wrong", async () => {
+    mockedAxios.post.mockRejectedValueOnce(new Error("Network error"));
+    try {
+      await ApiClient.registerUser({
+        username: "username",
+        email: "email",
+        password: "password",
+      });
+      assert.fail("mustn't go here");
+    } catch (e) {
+     if (e instanceof Error) {
+      expect(e.message).toBe("Network error");
+     }
+    } finally {
+      expect(mockedAxios.post).toHaveBeenCalledTimes(1);
+    }
+  });
+
+  it("throws custom error if response status code is not 200", async () => {
+    mockedAxios.post.mockResolvedValueOnce({
+      status: 500,
+      data: {},
+    });
+
+    try {
+      await ApiClient.registerUser({
+        username: "username",
+        email: "email",
+        password: "password",
+      });
+      assert.fail("mustn't go here");
+    } catch (e) {
+      if (e instanceof Error)  {
+        expect(e.message).toBe("registerUser fn fails");
+      }
+    } finally {
+      expect(mockedAxios.post).toHaveBeenCalledTimes(1);
+    }
   });
 });

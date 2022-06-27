@@ -17,7 +17,7 @@ class ApiClient {
     if (response.status === 200) {
       return response.data.user;
     }
-    throw new Error("registerUser fn fails");
+    throw new Error('registerUser fn fails');
   };
 }
 

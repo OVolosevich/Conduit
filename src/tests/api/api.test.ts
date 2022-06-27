@@ -1,21 +1,21 @@
-import axios, { AxiosError } from "axios";
-import ApiClient from "../../ApiClient";
-import assert from "assert";
+import axios, { AxiosError } from 'axios';
+import assert from 'assert';
+import ApiClient from '../../ApiClient';
 
-jest.mock("axios");
+jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
 
-describe("ApiClient.registerUser", () => {
+describe('ApiClient.registerUser', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it("returns a user object", async () => {
+  it('returns a user object', async () => {
     const user = {
-      username: "username",
-      email: "email",
-      password: "password",
-      token: "token",
+      username: 'username',
+      email: 'email',
+      password: 'password',
+      token: 'token',
       image: null,
       bio: null,
     };
@@ -28,18 +28,18 @@ describe("ApiClient.registerUser", () => {
     });
 
     const result = await ApiClient.registerUser({
-      username: "username",
-      email: "email",
-      password: "password",
+      username: 'username',
+      email: 'email',
+      password: 'password',
     });
 
     expect(mockedAxios.post).toHaveBeenCalledTimes(1);
     expect(result).toEqual(user);
   });
 
-  it("throws an error if user info is empty", async () => {
+  it('throws an error if user info is empty', async () => {
     const responseOnFail = {
-      message: "fails",
+      message: 'fails',
       response: {
         status: 422,
         data: {
@@ -48,9 +48,9 @@ describe("ApiClient.registerUser", () => {
       },
     };
     const emptyUser = {
-      username: "",
-      email: "",
-      password: "",
+      username: '',
+      email: '',
+      password: '',
     };
 
     mockedAxios.post.mockRejectedValueOnce(responseOnFail);
@@ -66,25 +66,25 @@ describe("ApiClient.registerUser", () => {
     }
   });
 
-  it("throws network error if url is wrong", async () => {
-    mockedAxios.post.mockRejectedValueOnce(new Error("Network error"));
+  it('throws network error if url is wrong', async () => {
+    mockedAxios.post.mockRejectedValueOnce(new Error('Network error'));
     try {
       await ApiClient.registerUser({
-        username: "username",
-        email: "email",
-        password: "password",
+        username: 'username',
+        email: 'email',
+        password: 'password',
       });
       assert.fail("mustn't go here");
     } catch (e) {
-     if (e instanceof Error) {
-      expect(e.message).toBe("Network error");
-     }
+      if (e instanceof Error) {
+        expect(e.message).toBe('Network error');
+      }
     } finally {
       expect(mockedAxios.post).toHaveBeenCalledTimes(1);
     }
   });
 
-  it("throws custom error if response status code is not 200", async () => {
+  it('throws custom error if response status code is not 200', async () => {
     mockedAxios.post.mockResolvedValueOnce({
       status: 500,
       data: {},
@@ -92,14 +92,14 @@ describe("ApiClient.registerUser", () => {
 
     try {
       await ApiClient.registerUser({
-        username: "username",
-        email: "email",
-        password: "password",
+        username: 'username',
+        email: 'email',
+        password: 'password',
       });
       assert.fail("mustn't go here");
     } catch (e) {
-      if (e instanceof Error)  {
-        expect(e.message).toBe("registerUser fn fails");
+      if (e instanceof Error) {
+        expect(e.message).toBe('registerUser fn fails');
       }
     } finally {
       expect(mockedAxios.post).toHaveBeenCalledTimes(1);

@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
   const [articlesList, setArticlesList] = useState<ArticleItem[]>([]);
   useEffect(() => {
     ApiClient.getArticles()
-    .then((articles) => setArticlesList(articles));
+      .then((articles) => setArticlesList(articles));
   }, []);
 
   return (

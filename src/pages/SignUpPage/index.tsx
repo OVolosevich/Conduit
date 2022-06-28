@@ -31,7 +31,9 @@ const SignUpPage: React.FC = () => {
           const errorsArray = Object.entries(e.response.data.errors);
           errorsArray.forEach((item) => {
             const error = `${item[0]} ${item[1]}`;
-            setErrors((prev) => [...prev, error]);
+            if (!errors.includes(error)) {
+              setErrors((prev) => [...prev, error]);
+            }
           });
         }
       }

@@ -35,6 +35,11 @@ const SignUpPage: React.FC = () => {
               setErrors((prev) => [...prev, error]);
             }
           });
+        } else if (e instanceof Error) {
+          const error = e.message;
+          if (!errors.includes(error)) {
+            setErrors((prev) => [...prev, error]);
+          }
         }
       }
     }

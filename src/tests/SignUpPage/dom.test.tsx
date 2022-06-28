@@ -7,9 +7,9 @@ describe('SignUpPage renders form', () => {
   it('renders 3 inputs', () => {
     render(<SignUpPage />);
 
-    expect(screen.getByLabelText('Name')).toBeInTheDocument();
-    expect(screen.getByLabelText('Email')).toBeInTheDocument();
-    expect(screen.getByLabelText('Password')).toBeInTheDocument();
+    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
   });
 
   it('renders 1 submit button', () => {
@@ -21,12 +21,39 @@ describe('SignUpPage renders form', () => {
 });
 
 describe('SignUpPage shows warning', () => {
-  it('shows warning if form values are empty', async () => {
+  it('if form values are empty', async () => {
     const { container } = render(<SignUpPage />);
-    const submitBtn = container.getElementsByClassName('submit-btn')[0];
-    fireEvent.click(submitBtn);
-    const warning = await screen.findByText(/Error/i);
-    expect(warning).toBeInTheDocument();
+
+    fireEvent.click(container.getElementsByClassName('submit-btn')[0]);
+
+    expect(await screen.findByText(/error/i)).toBeInTheDocument();
+  });
+  it('if name value is empty', async () => {
+    const { container } = render(<SignUpPage />);
+
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'a' } });
+    fireEvent.change(screen.getByLabelText(/password/i), { target: { value: 'a' } });
+    fireEvent.click(container.getElementsByClassName('submit-btn')[0]);
+
+    expect(await screen.findByText(/error/i)).toBeInTheDocument();
+  });
+  it('if password value is empty', async () => {
+    const { container } = render(<SignUpPage />);
+
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'a' } });
+    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'a' } });
+    fireEvent.click(container.getElementsByClassName('submit-btn')[0]);
+
+    expect(await screen.findByText(/error/i)).toBeInTheDocument();
+  });
+  it('if email value is empty', async () => {
+    const { container } = render(<SignUpPage />);
+
+    fireEvent.change(screen.getByLabelText(/password/i), { target: { value: 'a' } });
+    fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'a' } });
+    fireEvent.click(container.getElementsByClassName('submit-btn')[0]);
+
+    expect(await screen.findByText(/error/i)).toBeInTheDocument();
   });
 });
 
@@ -34,14 +61,10 @@ describe('SignUpPage hides warning', () => {
   it('hides warning on form focus', async () => {
     const { container } = render(<SignUpPage />);
 
-    const submitBtn = container.getElementsByClassName('submit-btn')[0];
-    const signUpForm = container.getElementsByClassName('form')[0];
+    fireEvent.click(container.getElementsByClassName('submit-btn')[0]);
+    expect(await screen.findByText(/error/i)).toBeInTheDocument();
 
-    fireEvent.click(submitBtn);
-    const warning = await screen.findByText(/Error/i);
-    expect(warning).toBeInTheDocument();
-
-    fireEvent.focus(signUpForm);
-    expect(screen.queryByText(/Error/i)).toBeNull();
+    fireEvent.focus(container.getElementsByClassName('form')[0]);
+    expect(screen.queryByText(/error/i)).toBeNull();
   });
 });

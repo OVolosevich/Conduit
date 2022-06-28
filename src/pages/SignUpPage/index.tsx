@@ -55,7 +55,12 @@ const SignUpPage: React.FC = () => {
           />
         ))}
       <div>
-        {errors.length !== 0 && errors.map((item) => <p key={item}>{item}</p>)}
+        {errors.length !== 0 && errors.map((item) => (
+          <p key={item}>
+            Error:
+            {item}
+          </p>
+        ))}
       </div>
       <button className={styles['submit-btn']} type="submit">
         Sign up

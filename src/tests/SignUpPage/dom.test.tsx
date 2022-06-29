@@ -72,7 +72,7 @@ describe('SignUpPage shows warning on submit click', () => {
 });
 
 describe('SignUpPage hides warning', () => {
-  it('hides warning on form focus', async () => {
+  it('hides warning on email input focus', async () => {
     const { container } = render(<SignUpPage />);
 
     fireEvent.click(container.getElementsByClassName('submit-btn')[0]);

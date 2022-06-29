@@ -46,12 +46,9 @@ const SignUpPage: React.FC = () => {
 
     setInputsStates({ ...emptyFormInputs });
   };
+
   return (
-    <form
-      className={styles.form}
-      onSubmit={(e) => submitHandler(e)}
-      onFocus={() => setErrors([])}
-    >
+    <form className={styles.form} onSubmit={(e) => submitHandler(e)}>
       {unregisteredGuestData.signUpInputs
         && unregisteredGuestData.signUpInputs.map((item) => (
           <InputSet
@@ -59,15 +56,18 @@ const SignUpPage: React.FC = () => {
             item={item}
             value={inputsStates[item.name]}
             setValue={setInputsStates}
+            setErrors={setErrors}
+            errors={errors}
           />
         ))}
       <div>
-        {errors.length !== 0 && errors.map((item) => (
-          <p key={item}>
-            Error:
-            {item}
-          </p>
-        ))}
+        {errors.length !== 0
+          && errors.map((item) => (
+            <p key={item}>
+              Error:
+              {item}
+            </p>
+          ))}
       </div>
       <button className={styles['submit-btn']} type="submit">
         Sign up

@@ -21,17 +21,19 @@ const FilterTabs: React.FC<IFilterTabs> = (props) => {
     }
   };
   return (
-    <ul data-testid="filter-tabs" className={styles['filter-tabs']}>
+    <div data-testid="filter-tabs" className={styles['filter-tabs']}>
       {allTabs.map((item) => (
-        <li
+        <button
+          type="button"
           className={styles['filter-tabs__item']}
           key={item}
           onClick={() => clickHandler(item)}
+          onKeyDown={(e) => e.key === 'Enter' && clickHandler(item)}
         >
           {item}
-        </li>
+        </button>
       ))}
-    </ul>
+    </div>
   );
 };
 

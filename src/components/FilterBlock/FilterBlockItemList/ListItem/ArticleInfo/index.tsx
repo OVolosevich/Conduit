@@ -6,11 +6,14 @@ interface ArticleInfoProps {
   title: string
 }
 
-const ArticleInfo: React.FC<ArticleInfoProps> = (props) => (
-  <>
-    <p className={styles.article__title}>{props.title}</p>
-    <p className={styles.article__description}>{props.description}</p>
-  </>
-);
+const ArticleInfo: React.FC<ArticleInfoProps> = (props) => {
+  const { title, description } = props;
+  return (
+    <>
+      <p className={styles.article__title}>{title}</p>
+      <p className={styles.article__description}>{description}</p>
+    </>
+  );
+};
 
 export default ArticleInfo;

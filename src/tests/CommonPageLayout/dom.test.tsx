@@ -1,36 +1,34 @@
-import { render, screen } from "@testing-library/react"; 
-import CommonPageLayout from "../../pages/CommonPageLayout";
-import { BrowserRouter } from "react-router-dom";
-import React from "react";
-import "@testing-library/jest-dom";
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import React from 'react';
+import CommonPageLayout from '../../pages/CommonPageLayout';
+import '@testing-library/jest-dom';
 
-describe("Header", () => {
-  beforeEach(()=> {
+describe('Header', () => {
+  beforeEach(() => {
     render(
       <BrowserRouter>
         <CommonPageLayout />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
   });
-  test("shows logo", () => {
-    expect(screen.getByText("conduit")).toBeInTheDocument();
+  test('shows logo', () => {
+    expect(screen.getByText('conduit')).toBeInTheDocument();
   });
-  test("shows navigation", () => {
-    expect(screen.getByRole("navigation")).toBeInTheDocument();
+  test('shows navigation', () => {
+    expect(screen.getByRole('navigation')).toBeInTheDocument();
   });
 });
 
-describe("Footer", () => {
-
-  beforeEach(()=> {
+describe('Footer', () => {
+  beforeEach(() => {
     render(
       <BrowserRouter>
         <CommonPageLayout />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
   });
-    test("shows footer link", () => {
-    expect(screen.getByText("GitHub")).toBeInTheDocument();
+  test('shows footer link', () => {
+    expect(screen.getByText('GitHub')).toBeInTheDocument();
   });
 });
-

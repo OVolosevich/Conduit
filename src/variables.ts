@@ -7,7 +7,7 @@ export interface Input {
   isValidated: boolean;
 }
 
-interface Idata {
+interface userInterfaceData {
   navbarLinks: string[];
   filterBlockTabs: string[];
   signUpInputs?: Input[];
@@ -18,12 +18,12 @@ const inputsValidation = {
   email:
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 };
-export const registeredUserData: Idata = {
+export const registeredUserData: userInterfaceData = {
   navbarLinks: ['home', 'new article', 'settings', 'username'],
   filterBlockTabs: ['your feed', 'global feed'],
 };
 
-export const unregisteredGuestData: Idata = {
+export const unregisteredGuestData: userInterfaceData = {
   navbarLinks: ['home', 'sign in', 'sign up'],
   filterBlockTabs: ['global feed'],
   signUpInputs: [

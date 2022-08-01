@@ -30,7 +30,7 @@ const InputSet: React.FC<InputSetProps> = ({
       [Symbol.match](string: string): RegExpMatchArray | null;
     },
     event: React.FocusEvent<HTMLInputElement>,
-  ): boolean => (!!(event.target.value && event.target.value.match(expressionToMath)));
+  ): boolean => ((Boolean(event.target.value) && Boolean(event.target.value.match(expressionToMath))));
 
   const blurHandler = (
     expressionToMath: {

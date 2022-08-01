@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { ArticleItem, RegisterUserResponse, User } from './Shared';
+import { ArticleItem, User } from './Shared';
 
 class ApiClient {
   static api_base = 'https://api.realworld.io/api/';
 
-  static getArticles = async ():Promise<ArticleItem[]> => {
+  static getArticles = async (): Promise<ArticleItem[]> => {
     const response = await axios.get(`${this.api_base}articles`);
     if (response.status === 200) {
       return response.data.articles;

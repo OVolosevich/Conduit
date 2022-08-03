@@ -1,16 +1,12 @@
 import React from 'react';
 import { Input } from '../../variables';
-import { User } from '../../Shared';
+import { UserInfo } from '../../Shared';
 import styles from './styles.module.css';
-
-interface InputsStatesSignature extends User {
-  [key: string]: string;
-}
 
 interface InputSetProps {
   item: Input;
   value: string;
-  setValue: React.Dispatch<React.SetStateAction<InputsStatesSignature>>;
+  setValue: React.Dispatch<React.SetStateAction<UserInfo>>;
   setErrors: React.Dispatch<React.SetStateAction<string[]>>;
   errors: string[];
 }

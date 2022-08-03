@@ -2,22 +2,18 @@ import React, { useState } from 'react';
 import { AxiosError } from 'axios';
 import ApiClient from '../../ApiClient';
 import { unregisteredGuestData } from '../../variables';
-import { User } from '../../Shared';
+import { UserInfo } from '../../Shared';
 import styles from './styles.module.css';
 import InputSet from '../../components/InputSet';
 
-interface InputsStatesSignature extends User {
-  [key: string]: string;
-}
-
-const emptyFormInputs: InputsStatesSignature = {
+const emptyFormInputs: UserInfo = {
   username: '',
   email: '',
   password: '',
 };
 
 const SignUpPage: React.FC = () => {
-  const [inputsStates, setInputsStates] = useState<InputsStatesSignature>({
+  const [inputsStates, setInputsStates] = useState<UserInfo>({
     ...emptyFormInputs,
   });
   const [errors, setErrors] = useState<string[]>([]);

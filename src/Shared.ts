@@ -32,12 +32,13 @@ interface RegisterUserResponse {
   image: null
 }
 
-interface User {
+interface UserInfo {
   email: string,
   username: string,
-  password: string
+  password: string,
+  [key: string]: string;
 }
 
 export {
-  ArticleItem, BreakPoints, RegisterUserResponse, User,
+  ArticleItem, BreakPoints, RegisterUserResponse, UserInfo,
 };

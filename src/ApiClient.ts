@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ArticleItem, User } from './Shared';
+import { ArticleItem, UserInfo } from './Shared';
 
 class ApiClient {
   static api_base = 'https://api.realworld.io/api/';
@@ -12,7 +12,7 @@ class ApiClient {
     throw new Error(response.status.toString());
   };
 
-  static registerUser = async (user: User) => {
+  static registerUser = async (user: UserInfo) => {
     const response = await axios.post(`${this.api_base}users`, { user });
     if (response.status === 200) {
       return response.data.user;

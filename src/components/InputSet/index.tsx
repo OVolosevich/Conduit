@@ -1,12 +1,11 @@
 import React from 'react';
-import { Input } from '../../variables';
-import { UserInfo } from '../../Shared';
+import { UserInputAction, Input } from '../../Shared';
 import styles from './styles.module.css';
 
 interface InputSetProps {
   item: Input;
   value: string;
-  setValue: React.Dispatch<React.SetStateAction<UserInfo>>;
+  setValue: React.Dispatch<UserInputAction>;
   setErrors: React.Dispatch<React.SetStateAction<string[]>>;
   errors: string[];
 }
@@ -57,7 +56,7 @@ const InputSet: React.FC<InputSetProps> = ({
         type={type}
         name={name}
         value={value}
-        onChange={(event) => setValue((prev) => ({ ...prev, [name]: event.target.value }))}
+        onChange={(event) => setValue({ type: name, payload: event.target.value })}
         onFocus={(event) => isValidated && focusHandler(event)}
         onBlur={(event) => isValidated && regExp && blurHandler(regExp, event)}
       />

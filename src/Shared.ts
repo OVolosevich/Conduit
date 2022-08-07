@@ -39,6 +39,32 @@ interface UserInfo {
   [key: string]: string;
 }
 
+interface UserInputAction {
+  type: string,
+  payload?: string | undefined
+}
+
+interface Input {
+  name: string;
+  type: string;
+  label: string;
+  labelId: string;
+  regExp?: { [Symbol.match](string: string): RegExpMatchArray | null };
+  isValidated: boolean;
+}
+
+interface UserInterfaceData {
+  navbarLinks: string[];
+  filterBlockTabs: string[];
+  signUpInputs?: Input[];
+}
+
 export {
-  ArticleItem, BreakPoints, RegisterUserResponse, UserInfo,
+  ArticleItem,
+  BreakPoints,
+  RegisterUserResponse,
+  UserInfo,
+  UserInputAction,
+  UserInterfaceData,
+  Input,
 };

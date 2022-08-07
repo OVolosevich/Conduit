@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { AxiosError } from 'axios';
 import ApiClient from '../../ApiClient';
-import { unregisteredGuestData } from '../../variables';
-import { UserInfo } from '../../Shared';
+import { unregisteredGuestData, emptySignUpFormInputs } from '../../variables';
 import styles from './styles.module.css';
 import InputSet from '../../components/InputSet';
-
-const emptyFormInputs: UserInfo = {
-  username: '',
-  email: '',
-  password: '',
-};
+import reducer from './services';
 
 const SignUpPage: React.FC = () => {
-  const [inputsStates, setInputsStates] = useState<UserInfo>({
-    ...emptyFormInputs,
-  });
+  const [inputsStates, dispatch] = useReducer(reducer, { ...emptySignUpFormInputs });
   const [errors, setErrors] = useState<string[]>([]);
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -40,7 +32,7 @@ const SignUpPage: React.FC = () => {
       }
     }
 
-    setInputsStates({ ...emptyFormInputs });
+    dispatch({ type: 'clean' });
   };
 
   return (
@@ -51,7 +43,7 @@ const SignUpPage: React.FC = () => {
             key={item.labelId}
             item={item}
             value={inputsStates[item.name]}
-            setValue={setInputsStates}
+            setValue={dispatch}
             setErrors={setErrors}
             errors={errors}
           />

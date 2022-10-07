@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchArticles } from '../../../store/slices/HomePageSlice';
 import Banner from '../../components/Banner';
 import FilterBlock from '../../components/FilterBlock';
-import ApiClient from '../../ApiClient';
-import { ArticleItem } from '../../Shared';
+import { AppDispatch } from '../../../store/state';
 
 const HomePage: React.FC = () => {
-  const [articlesList, setArticlesList] = useState<ArticleItem[]>([]);
-  useEffect(() => {
-    ApiClient.getArticles()
-      .then((articles) => setArticlesList(articles));
-  }, []);
+  const dispatch = useDispatch<AppDispatch>();
 
+  useEffect(() => {
+    dispatch(fetchArticles());
+  }, [dispatch]);
   return (
     <>
       <Banner />
-      <FilterBlock articlesList={articlesList} />
+      <FilterBlock />
     </>
   );
 };

@@ -26,5 +26,11 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: [
+        'state',
+      ]
+    }]
   },
 };

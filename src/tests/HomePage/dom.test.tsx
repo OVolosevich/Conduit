@@ -85,7 +85,7 @@ describe('FilterBlock', () => {
     },
   ];
   beforeEach(() => {
-    render(<FilterBlock articlesList={articlesData} />);
+    render(<FilterBlock />);
   });
 
   test('shows TagBar', () => {
@@ -99,7 +99,7 @@ describe('FilterBlock', () => {
   });
 
   test('shows Preloader', () => {
-    render(<FilterBlock articlesList={[]} />);
+    render(<FilterBlock />);
     expect(screen.getByTestId('preloader')).toBeInTheDocument();
   });
 });

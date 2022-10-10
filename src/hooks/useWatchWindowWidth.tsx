@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BreakPoints } from '../../Shared';
+import { BreakPoints } from '../Shared';
 
 const useWatchWindowWidth = (breakpoint: BreakPoints): boolean => {
   const [currentWidth, setCurrentWidth] = useState(window.screen.width);

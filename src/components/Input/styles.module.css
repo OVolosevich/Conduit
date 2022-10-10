@@ -1,0 +1,10 @@
+.fieldset {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 0;
+}
+
+.input {
+  width: 80%;
+}

@@ -56,7 +56,7 @@ interface Input {
 interface UserInterfaceData {
   navbarLinks: string[];
   filterBlockTabs: string[];
-  signUpInputs?: Input[];
+  formInputs: Input[];
 }
 
 export {

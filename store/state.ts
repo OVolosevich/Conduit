@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import homePageReducer, { HomePageState } from './slices/HomePageSlice';
+import signUpPageReducer from './slices/SignUpSlice';
 
 export interface StateSignature {
   homepage: HomePageState;
@@ -8,6 +9,7 @@ export interface StateSignature {
 const store = configureStore({
   reducer: {
     homepage: homePageReducer,
+    signUpPage: signUpPageReducer,
   },
 });
 

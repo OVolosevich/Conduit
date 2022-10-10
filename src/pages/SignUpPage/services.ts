@@ -1,30 +1,25 @@
-import { UserInfo, UserInputAction } from '../../Shared';
-import { emptySignUpFormInputs } from '../../variables';
+import { useSelector } from 'react-redux';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+import { RootState } from '../../../store/state';
+import {
+  setName,
+  setEmail,
+  setPassword,
+} from '../../../store/slices/SignUpSlice';
 
-const enum UserInputActionTypes {
-  cleanForm = 'clean',
-  changeUsername = 'username',
-  changePassword = 'password',
-  changeEmail = 'email',
+interface HandlersList {
+  [value: string]: ActionCreatorWithPayload<string, string>;
 }
 
-export default function reducer(state: UserInfo, action: UserInputAction): UserInfo {
-  switch (action.type) {
-    case UserInputActionTypes.cleanForm:
-      return { ...emptySignUpFormInputs };
-    case UserInputActionTypes.changeUsername:
-      return action.payload
-        ? { ...state, username: action.payload }
-        : { ...state, username: '' };
-    case UserInputActionTypes.changeEmail:
-      return action.payload
-        ? { ...state, email: action.payload }
-        : { ...state, email: '' };
-    case UserInputActionTypes.changePassword:
-      return action.payload
-        ? { ...state, password: action.payload }
-        : { ...state, password: '' };
-    default:
-      return state;
-  }
-}
+const signUpInputHandlers: HandlersList = {
+  username: setName,
+  email: setEmail,
+  password: setPassword,
+};
+export const getOnChangeHandler = (
+  labetId: string,
+): ActionCreatorWithPayload<string, string> => signUpInputHandlers[labetId];
+
+export const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+};

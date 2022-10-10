@@ -15,12 +15,13 @@ export const emptySignUpFormInputs: UserInfo = {
 export const registeredUserData: UserInterfaceData = {
   navbarLinks: ['home', 'new article', 'settings', 'username'],
   filterBlockTabs: ['your feed', 'global feed'],
+  formInputs: [],
 };
 
 export const unregisteredGuestData: UserInterfaceData = {
   navbarLinks: ['home', 'sign in', 'sign up'],
   filterBlockTabs: ['global feed'],
-  signUpInputs: [
+  formInputs: [
     {
       type: 'text',
       name: 'username',

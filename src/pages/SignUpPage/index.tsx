@@ -1,65 +1,36 @@
-import React, { useState, useReducer } from 'react';
-import { AxiosError } from 'axios';
-import ApiClient from '../../ApiClient';
-import { unregisteredGuestData, emptySignUpFormInputs } from '../../variables';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Input from '../../components/Input';
 import styles from './styles.module.css';
-import InputSet from '../../components/InputSet';
-import reducer from './services';
+import { unregisteredGuestData } from '../../variables';
+import { AppDispatch, RootState } from '../../../store/state';
+import { getOnChangeHandler, submitHandler } from './services';
+import { UserInfo } from '../../Shared';
 
 const SignUpPage: React.FC = () => {
-  const [inputsStates, dispatch] = useReducer(reducer, { ...emptySignUpFormInputs });
-  const [errors, setErrors] = useState<string[]>([]);
-  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await ApiClient.registerUser(inputsStates);
-    } catch (e) {
-      if (e instanceof AxiosError) {
-        if (e.response && e.response.data && e.response.data.errors) {
-          const errorsArray = Object.entries(e.response.data.errors);
-          errorsArray.forEach((item) => {
-            const error = `${item[0]} ${item[1]}`;
-            if (!errors.includes(error)) {
-              setErrors((prev) => [...prev, error]);
-            }
-          });
-        } else if (e instanceof Error) {
-          const error = e.message;
-          if (!errors.includes(error)) {
-            setErrors((prev) => [...prev, error]);
-          }
-        }
-      }
-    }
-
-    dispatch({ type: 'clean' });
+  const { formInputs } = unregisteredGuestData;
+  const dispatch = useDispatch<AppDispatch>();
+  const signUpForm = useSelector<RootState, UserInfo>((state) => state.signUpPage.form);
+  const onChange = (inputName: string, value: string) => {
+    const action = getOnChangeHandler(inputName);
+    dispatch(action(value));
   };
-
   return (
-    <form className={styles.form} onSubmit={(e) => submitHandler(e)}>
-      {unregisteredGuestData.signUpInputs
-        && unregisteredGuestData.signUpInputs.map((item) => (
-          <InputSet
-            key={item.labelId}
-            item={item}
-            value={inputsStates[item.name]}
-            setValue={dispatch}
-            setErrors={setErrors}
-            errors={errors}
-          />
-        ))}
-      <div>
-        {errors.length !== 0
-          && errors.map((item) => (
-            <p key={item}>
-              Error:
-              {item}
-            </p>
-          ))}
-      </div>
-      <button className={styles['submit-btn']} type="submit">
-        Sign up
-      </button>
+    <form onSubmit={submitHandler} className={styles.form}>
+      {formInputs.map(({
+        type, name, label, labelId,
+      }) => (
+        <Input
+          key={labelId}
+          onChange={onChange}
+          value={signUpForm[name]}
+          type={type}
+          name={name}
+          label={label}
+          labelId={labelId}
+        />
+      ))}
+      <button type="submit">Sign Up</button>
     </form>
   );
 };

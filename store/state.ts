@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import homePageReducer, { HomePageState } from './slices/HomePageSlice';
+import homePageReducer, { HomePageState } from './slices/homePageSlice';
 import signUpPageReducer from './slices/SignUpSlice';
 
 export interface StateSignature {

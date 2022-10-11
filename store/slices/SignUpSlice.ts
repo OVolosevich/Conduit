@@ -1,17 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { emptySignUpFormInputs } from '../../src/variables';
-import { UserInfo } from '../../src/Shared';
+import { createSlice } from "@reduxjs/toolkit";
+import { emptySignUpFormInputs } from "../../src/variables";
+import { UserInfo } from "../../src/Shared";
 
-interface SignUpState {
-  form: UserInfo
+export interface SignUpState {
+  form: UserInfo;
+  formErrors: string[];
 }
 
 const initialState: SignUpState = {
   form: emptySignUpFormInputs,
+  formErrors: [],
 };
 
 const SignUpSlice = createSlice({
-  name: 'SignUpSlice',
+  name: "SignUpSlice",
   initialState,
   reducers: {
     setName: (state, action) => {
@@ -26,10 +28,25 @@ const SignUpSlice = createSlice({
     resetForm: (state, action) => {
       state.form = emptySignUpFormInputs;
     },
+    setFormError: (state, action) => {
+      state.formErrors = Array.from(
+        new Set([...state.formErrors, action.payload])
+      );
+    },
+    removeFormError: (state, action) => {
+      state.formErrors = state.formErrors.filter(
+        (item) => !item.includes(action.payload)
+      );
+    },
   },
 });
 
 export const {
-  setName, setEmail, setPassword, resetForm,
+  setName,
+  setEmail,
+  setPassword,
+  resetForm,
+  setFormError,
+  removeFormError,
 } = SignUpSlice.actions;
 export default SignUpSlice.reducer;

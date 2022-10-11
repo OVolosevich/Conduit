@@ -8,7 +8,7 @@ import TagsBar from './TagBar';
 import styles from './styles.module.css';
 import Preloader from '../Preloader';
 import { RootState } from '../../../store/state';
-import { HomePageState } from '../../../store/slices/HomePageSlice';
+import { HomePageState } from '../../../store/slices/homePageSlice';
 
 const FilterBlock: React.FC = () => {
   const { articles, isPending } = useSelector<RootState, HomePageState>(

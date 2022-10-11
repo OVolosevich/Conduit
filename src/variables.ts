@@ -1,4 +1,4 @@
-import { UserInfo, UserInterfaceData } from './Shared';
+import { UserInfo, UserInterfaceData } from "./Shared";
 
 const inputsValidation = {
   name: /^[A-Za-z А-Яа-я]*$/,
@@ -7,50 +7,47 @@ const inputsValidation = {
 };
 
 export const emptySignUpFormInputs: UserInfo = {
-  username: '',
-  email: '',
-  password: '',
+  username: "",
+  email: "",
+  password: "",
 };
 
 export const registeredUserData: UserInterfaceData = {
-  navbarLinks: ['home', 'new article', 'settings', 'username'],
-  filterBlockTabs: ['your feed', 'global feed'],
+  navbarLinks: ["home", "new article", "settings", "username"],
+  filterBlockTabs: ["your feed", "global feed"],
   formInputs: [],
 };
 
 export const unregisteredGuestData: UserInterfaceData = {
-  navbarLinks: ['home', 'sign in', 'sign up'],
-  filterBlockTabs: ['global feed'],
+  navbarLinks: ["home", "sign in", "sign up"],
+  filterBlockTabs: ["global feed"],
   formInputs: [
     {
-      type: 'text',
-      name: 'username',
-      label: 'Name',
-      labelId: 'signUpName',
-      isValidated: true,
+      type: "text",
+      name: "username",
+      label: "Name",
+      labelId: "signUpName",
       regExp: inputsValidation.name,
     },
     {
-      type: 'email',
-      name: 'email',
-      label: 'Email',
-      labelId: 'signUpEmail',
-      isValidated: true,
+      type: "email",
+      name: "email",
+      label: "Email",
+      labelId: "signUpEmail",
       regExp: inputsValidation.email,
     },
     {
-      type: 'password',
-      name: 'password',
-      label: 'Password',
-      labelId: 'signUpPassword',
-      isValidated: false,
+      type: "password",
+      name: "password",
+      label: "Password",
+      labelId: "signUpPassword",
     },
   ],
 };
 
 export const tagsList: string[] = [
-  'welcome',
-  'implementations',
-  'codebaseShow',
-  'introduction',
+  "welcome",
+  "implementations",
+  "codebaseShow",
+  "introduction",
 ];

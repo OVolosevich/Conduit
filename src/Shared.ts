@@ -1,20 +1,20 @@
 interface ArticleAuthor {
-  bio: string
-  following: boolean
-  image: string
-  username: string
+  bio: string;
+  following: boolean;
+  image: string;
+  username: string;
 }
 interface ArticleItem {
-  author: ArticleAuthor,
-  body: string
-  createdAt: string
-  description: string
-  favorited: boolean
-  favoritesCount: number
-  slug: string
-  tagList: string[]
-  title: string
-  updatedAt: string
+  author: ArticleAuthor;
+  body: string;
+  createdAt: string;
+  description: string;
+  favorited: boolean;
+  favoritesCount: number;
+  slug: string;
+  tagList: string[];
+  title: string;
+  updatedAt: string;
 }
 
 const enum BreakPoints {
@@ -25,23 +25,23 @@ const enum BreakPoints {
 }
 
 interface RegisterUserResponse {
-  email: string,
-  token: string,
-  username: string,
-  bio: string,
-  image: null
+  email: string;
+  token: string;
+  username: string;
+  bio: string;
+  image: null;
 }
 
 interface UserInfo {
-  email: string,
-  username: string,
-  password: string,
+  email: string;
+  username: string;
+  password: string;
   [key: string]: string;
 }
 
 interface UserInputAction {
-  type: string,
-  payload?: string | undefined
+  type: string;
+  payload?: string | undefined;
 }
 
 interface Input {
@@ -50,7 +50,6 @@ interface Input {
   label: string;
   labelId: string;
   regExp?: { [Symbol.match](string: string): RegExpMatchArray | null };
-  isValidated: boolean;
 }
 
 interface UserInterfaceData {

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchArticles } from '../../../store/slices/HomePageSlice';
+import { fetchArticles } from '../../../store/slices/homePageSlice';
 import Banner from '../../components/Banner';
 import FilterBlock from '../../components/FilterBlock';
 import { AppDispatch } from '../../../store/state';

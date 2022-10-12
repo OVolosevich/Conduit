@@ -50,12 +50,15 @@ interface Input {
   label: string;
   labelId: string;
   regExp?: { [Symbol.match](string: string): RegExpMatchArray | null };
+  emtyErrorMessage: string;
+  validationErrorMessage?: string;
 }
 
 interface UserInterfaceData {
   navbarLinks: string[];
   filterBlockTabs: string[];
   formInputs: Input[];
+  emptyFormError: string;
 }
 
 export {

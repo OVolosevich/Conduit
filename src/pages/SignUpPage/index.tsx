@@ -1,50 +1,61 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Input from "../../components/Input";
-import styles from "./styles.module.css";
-import { unregisteredGuestData } from "../../variables";
-import { AppDispatch, RootState } from "../../../store/state";
-import { getOnChangeHandler, submitHandler } from "./services";
-import { UserInfo } from "../../Shared";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Input from '../../components/Input';
+import styles from './styles.module.css';
+import { unregisteredGuestData } from '../../variables';
+import { AppDispatch, RootState } from '../../../store/state';
+import { getOnChangeHandler, registerUser, isAnyInputEmpty } from './services';
+import { UserInfo } from '../../Shared';
 import {
   setFormError,
   SignUpState,
   removeFormError,
-} from "../../../store/slices/SignUpSlice";
+} from '../../../store/slices/SignUpSlice';
 
 const SignUpPage: React.FC = () => {
-  const { formInputs } = unregisteredGuestData;
   const dispatch = useDispatch<AppDispatch>();
-  const signUpForm = useSelector<RootState, UserInfo>(
-    (state) => state.signUpPage.form
+  const userInfo = useSelector<RootState, UserInfo>(
+    (state) => state.signUpPage.form,
   );
   const { formErrors } = useSelector<RootState, SignUpState>(
-    (state) => state.signUpPage
+    (state) => state.signUpPage,
   );
-  const onChange = (inputName: string, value: string) => {
-    const action = getOnChangeHandler(inputName);
-    dispatch(action(value));
-  };
-
   const setError = (errorMessage: string): void => {
     dispatch(setFormError(errorMessage));
   };
   const removeError = (inputName: string): void => {
     dispatch(removeFormError(inputName));
   };
+  const onChange = (inputName: string, value: string) => {
+    const action = getOnChangeHandler(inputName);
+    dispatch(action(value));
+  };
+
   const errors = formErrors.map((item) => <p key={item}>{item}</p>);
+  const hasErrors = formErrors.length !== 0;
+
+  const onSubmit = (
+    event: React.FormEvent<HTMLFormElement>,
+    user: UserInfo,
+  ) => {
+    event.preventDefault();
+    if (isAnyInputEmpty(user) && !hasErrors) {
+      setError(unregisteredGuestData.emptyFormError);
+    } else if (!hasErrors) {
+      registerUser(user);
+    }
+  };
   return (
-    <form onSubmit={submitHandler} className={styles.form}>
-      {formInputs.map(({ type, name, label, labelId, regExp }) => (
+    <form
+      onSubmit={(event) => onSubmit(event, userInfo)}
+      className={styles.form}
+    >
+      {unregisteredGuestData.formInputs.map((item) => (
         <Input
-          key={labelId}
+          key={item.labelId}
           setValue={onChange}
-          value={signUpForm[name]}
-          type={type}
-          name={name}
-          label={label}
-          labelId={labelId}
-          regExp={regExp}
+          value={userInfo[item.name]}
+          item={item}
           setError={setError}
           removeError={removeError}
         />

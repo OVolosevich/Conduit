@@ -1,50 +1,44 @@
-import React from "react";
-import styles from "./styles.module.css";
-import getValidationError from "./services";
+import React from 'react';
+import styles from './styles.module.css';
+import { Input as InputInterface } from '../../Shared';
+import { unregisteredGuestData } from '../../variables';
 
 interface InputProps {
-  type: string;
-  name: string;
-  label: string;
-  labelId: string;
+  item: InputInterface;
   setValue: (name: string, value: string) => void;
   value: string;
   setError: (errorMessage: string) => void;
   removeError: (inputName: string) => void;
-  regExp?:
-    | { [Symbol.match](string: string): RegExpMatchArray | null }
-    | undefined;
 }
 
 const Input: React.FC<InputProps> = (props: InputProps) => {
   const {
+    item, setValue, value, setError, removeError,
+  } = props;
+  const {
+    labelId,
+    label,
     type,
     name,
-    label,
-    labelId,
-    setValue,
-    value,
     regExp,
-    setError,
-    removeError,
-  } = props;
+    emtyErrorMessage,
+    validationErrorMessage,
+  } = item;
+  const onBlur = (event: React.FocusEvent<HTMLInputElement, Element>): void => {
+    const isEmpty = event.target.value === '';
+    const isValid = regExp !== undefined && Boolean(event.target.value.match(regExp));
 
-  const blurHandler = (
-    event: React.FocusEvent<HTMLInputElement, Element>,
-    expressionToMatch:
-      | { [Symbol.match](string: string): RegExpMatchArray | null }
-      | undefined,
-    inputName: string
-  ) => {
-    const validationError = getValidationError(
-      event.target.value,
-      expressionToMatch,
-      inputName
-    );
-    if (validationError) {
-      setError(validationError);
-    } else {
-      removeError(inputName);
+    if (isEmpty) {
+      setError(emtyErrorMessage);
+    } else if (validationErrorMessage && !isValid) {
+      setError(validationErrorMessage);
+    }
+  };
+  const onFocus = (): void => {
+    removeError(unregisteredGuestData.emptyFormError);
+    removeError(emtyErrorMessage);
+    if (validationErrorMessage) {
+      removeError(validationErrorMessage);
     }
   };
   return (
@@ -57,12 +51,11 @@ const Input: React.FC<InputProps> = (props: InputProps) => {
         name={name}
         value={value}
         onChange={(e) => setValue(name, e.target.value)}
-        onBlur={(e) => blurHandler(e, regExp, label.toLowerCase())}
+        onBlur={(e) => onBlur(e)}
+        onFocus={onFocus}
       />
     </fieldset>
   );
 };
-Input.defaultProps = {
-  regExp: undefined,
-};
+
 export default Input;

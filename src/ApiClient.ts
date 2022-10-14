@@ -1,8 +1,8 @@
-import axios, { AxiosError } from "axios";
-import { ArticleItem, RegisterUserResponse, UserInfo } from "./Shared";
+import axios, { AxiosError } from 'axios';
+import { ArticleItem, RegisterUserResponse, UserInfo } from './Shared';
 
 class ApiClient {
-  static api_base = "https://api.realworld.io/api/";
+  static api_base = 'https://api.realworld.io/api/';
 
   static getArticles = async (): Promise<ArticleItem[]> => {
     const response = await axios.get(`${this.api_base}articles`);
@@ -13,18 +13,17 @@ class ApiClient {
   };
 
   static registerUser = async (
-    user: UserInfo
+    user: UserInfo,
   ): Promise<RegisterUserResponse> => {
     try {
       const response = await axios.post(`${this.api_base}users`, { user });
       if (response.status === 200) {
         return {
           success: true,
-          message: "success",
+          message: 'success',
         };
-      } else {
-        throw new Error("registerUser fn fails");
       }
+      throw new Error('registerUser fn fails');
     } catch (error) {
       if (error instanceof AxiosError) {
         return {
@@ -34,7 +33,7 @@ class ApiClient {
       }
       return {
         success: false,
-        message: "smth went wrong",
+        message: 'smth went wrong',
       };
     }
   };

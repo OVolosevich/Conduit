@@ -1,6 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
-import homePageReducer from "./slices/homePageSlice";
-import signUpPageReducer from "./slices/SignUpSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import homePageReducer from './slices/homePageSlice';
+import signUpPageReducer from './slices/SignUpSlice';
 
 const store = configureStore({
   reducer: {

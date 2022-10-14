@@ -59,7 +59,7 @@ interface UserInterfaceData {
 }
 
 type ModalText = {
-  [key in "message" | "title" | "buttonText"]: string;
+  [key in 'message' | 'title' | 'buttonText']: string;
 } & {
   message: string;
   title: string;
@@ -72,7 +72,7 @@ interface ModalCases {
 }
 
 type ModalContent = {
-  [key in "signUp" | "signIn"]: ModalCases;
+  [key in 'signUp' | 'signIn']: ModalCases;
 } & {
   signUp: ModalCases;
   signIn: ModalCases;

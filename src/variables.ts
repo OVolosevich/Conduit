@@ -1,4 +1,4 @@
-import { UserInfo, UserInterfaceData } from './Shared';
+import { UserInfo, UserInterfaceData, ModalContent } from "./Shared";
 
 const inputsValidation = {
   name: /^[A-Za-z А-Яа-я]*$/,
@@ -7,54 +7,81 @@ const inputsValidation = {
 };
 
 export const emptySignUpFormInputs: UserInfo = {
-  username: '',
-  email: '',
-  password: '',
+  username: "",
+  email: "",
+  password: "",
 };
 
 export const registeredUserData: UserInterfaceData = {
-  navbarLinks: ['home', 'new article', 'settings', 'username'],
-  filterBlockTabs: ['your feed', 'global feed'],
+  navbarLinks: ["home", "new article", "settings", "username"],
+  filterBlockTabs: ["your feed", "global feed"],
   formInputs: [],
-  emptyFormError: 'Fill in form to sign in',
+  emptyFormError: "Fill in form to sign in",
 };
 
 export const unregisteredGuestData: UserInterfaceData = {
-  navbarLinks: ['home', 'sign in', 'sign up'],
-  filterBlockTabs: ['global feed'],
+  navbarLinks: ["home", "sign in", "sign up"],
+  filterBlockTabs: ["global feed"],
   formInputs: [
     {
-      type: 'text',
-      name: 'username',
-      label: 'Name',
-      labelId: 'signUpName',
+      type: "text",
+      name: "username",
+      label: "Name",
+      labelId: "signUpName",
       regExp: inputsValidation.name,
-      emtyErrorMessage: 'name must not be empty',
-      validationErrorMessage: 'check the validity of name',
+      emtyErrorMessage: "name must not be empty",
+      validationErrorMessage: "check the validity of name",
     },
     {
-      type: 'text',
-      name: 'email',
-      label: 'Email',
-      labelId: 'signUpEmail',
+      type: "text",
+      name: "email",
+      label: "Email",
+      labelId: "signUpEmail",
       regExp: inputsValidation.email,
-      emtyErrorMessage: 'email must not be empty',
-      validationErrorMessage: 'check the validity of email',
+      emtyErrorMessage: "email must not be empty",
+      validationErrorMessage: "check the validity of email",
     },
     {
-      type: 'password',
-      name: 'password',
-      label: 'Password',
-      labelId: 'signUpPassword',
-      emtyErrorMessage: 'password must not be empty',
+      type: "password",
+      name: "password",
+      label: "Password",
+      labelId: "signUpPassword",
+      emtyErrorMessage: "password must not be empty",
     },
   ],
-  emptyFormError: 'Fill in form to sign up',
+  emptyFormError: "Fill in form to sign up",
 };
 
 export const tagsList: string[] = [
-  'welcome',
-  'implementations',
-  'codebaseShow',
-  'introduction',
+  "welcome",
+  "implementations",
+  "codebaseShow",
+  "introduction",
 ];
+
+export const modalTextContent: ModalContent = {
+  signUp: {
+    success: {
+      title: "Welcome!",
+      message: "You've registered successfully.",
+      buttonText: "OK",
+    },
+    failure: {
+      title: "Oops!",
+      message: "Something went wrong! Please try again later",
+      buttonText: "OK",
+    },
+  },
+  signIn: {
+    success: {
+      title: "Welcome!",
+      message: "You've registered successfully.",
+      buttonText: "OK",
+    },
+    failure: {
+      title: "Oops!",
+      message: "Something went wrong! Please try again later",
+      buttonText: "OK",
+    },
+  },
+};

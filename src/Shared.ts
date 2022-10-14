@@ -25,11 +25,8 @@ const enum BreakPoints {
 }
 
 interface RegisterUserResponse {
-  email: string;
-  token: string;
-  username: string;
-  bio: string;
-  image: null;
+  message: string;
+  success: boolean;
 }
 
 interface UserInfo {
@@ -61,6 +58,26 @@ interface UserInterfaceData {
   emptyFormError: string;
 }
 
+type ModalText = {
+  [key in "message" | "title" | "buttonText"]: string;
+} & {
+  message: string;
+  title: string;
+  buttonText: string;
+};
+
+interface ModalCases {
+  success: ModalText;
+  failure: ModalText;
+}
+
+type ModalContent = {
+  [key in "signUp" | "signIn"]: ModalCases;
+} & {
+  signUp: ModalCases;
+  signIn: ModalCases;
+};
+
 export {
   ArticleItem,
   BreakPoints,
@@ -69,4 +86,6 @@ export {
   UserInputAction,
   UserInterfaceData,
   Input,
+  ModalContent,
+  ModalText,
 };

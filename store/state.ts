@@ -1,10 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-import homePageReducer, { HomePageState } from './slices/homePageSlice';
-import signUpPageReducer from './slices/SignUpSlice';
-
-export interface StateSignature {
-  homepage: HomePageState;
-}
+import { configureStore } from "@reduxjs/toolkit";
+import homePageReducer from "./slices/homePageSlice";
+import signUpPageReducer from "./slices/SignUpSlice";
 
 const store = configureStore({
   reducer: {

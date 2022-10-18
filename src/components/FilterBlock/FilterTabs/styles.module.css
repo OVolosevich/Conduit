@@ -9,8 +9,14 @@
     padding: 10px;
     outline: none;
     border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
-    border: 2px solid var(--main-dark); 
+    border: 2px solid var(--main-dark);
     color: var(--main-dark);
     background-color: transparent;
     cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-tabs__item:hover {
+    background-color: var(--main-grey);
+    color: var(--main-white);
 }

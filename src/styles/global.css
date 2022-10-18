@@ -1,6 +1,7 @@
 :root {
 	--main-dark: #212529;
-	--main-grey: #dddddd;
+	--main-grey: #555;
+	--main-dark-grey: #8d8d8d;
 	--main-light-blue: #17a2b8;
 	--main-dark-blue: #1757b8;
 	--main-purple: #9817b8;
@@ -8,7 +9,6 @@
 	--main-red: #ff0e26;
 	--main-orange: #ffc107;
 	--main-yellow: #ffee07;
-	--main-grey: #dddddd;
 	--main-white: #fff;
 	--font-for-heading: 'Cabin Sketch', cursive;
 	--font-default: 'Neucha', cursive;

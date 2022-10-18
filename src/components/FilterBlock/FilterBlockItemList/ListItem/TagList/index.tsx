@@ -10,7 +10,7 @@ const TagList: React.FC<TagListProps> = (props) => {
   return (
     <div className={styles['tag-list']}>
       {tags.map((item) => (
-        <p className="tag-list__item" key={item}>
+        <p className={styles['tag-list__item']} key={item}>
           {item}
         </p>
       ))}

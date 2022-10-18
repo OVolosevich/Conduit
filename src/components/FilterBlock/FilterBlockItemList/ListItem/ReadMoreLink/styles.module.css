@@ -1,3 +1,5 @@
 .list-item__read-more {
 	grid-area: ReadMoreLink;
+	color: var(--main-dark-blue);
+	align-self: center;
 }

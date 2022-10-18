@@ -5,8 +5,10 @@ import styles from './styles.module.css';
 
 const Header: React.FC = () => (
   <header className={styles.header}>
-    <Logo />
-    <Navbar />
+    <div className={styles.container}>
+      <Logo />
+      <Navbar />
+    </div>
   </header>
 );
 

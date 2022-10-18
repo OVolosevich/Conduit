@@ -1,5 +1,5 @@
 :root {
-	--main-dark: #555;
+	--main-dark: #212529;
 	--main-grey: #dddddd;
 	--main-light-blue: #17a2b8;
 	--main-dark-blue: #1757b8;
@@ -12,6 +12,7 @@
 	--main-white: #fff;
 	--font-for-heading: 'Cabin Sketch', cursive;
 	--font-default: 'Neucha', cursive;
+	--max-width: 1100px;
 
 }
 
@@ -25,12 +26,10 @@
 }
 
 #root {
-	max-width: 1100px;
+	width: 100%;
 	min-height: 100vh;
 	margin: 0 auto;
 	font-family: var(--font-default);
 	display: grid;
 	grid-template-rows: 80px 1fr 80px;
 }
-
-

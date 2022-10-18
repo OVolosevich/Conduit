@@ -1,7 +1,18 @@
 .header {
-	display: flex;
-	justify-content: space-between;
-	background-color:  var(--main-dark);
+	background-color: var(--main-dark);
 	padding: 0 10px;
 	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	border-radius: 0 25px 225px 0/25px 0 25px 255px;
+	position: sticky;
+	top: 0;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	max-width: var(--max-width);
 }

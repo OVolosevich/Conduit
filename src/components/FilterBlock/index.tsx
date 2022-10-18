@@ -24,10 +24,12 @@ const FilterBlock: React.FC = () => {
     <FilterBlockItemList articles={getFilteredArticles(articles, chosenTab)} />
   );
   return (
-    <div data-testid="filter-block" className={styles['filter-block']}>
-      <FilterTabs setChosenTab={setChosenTab} chosenTab={chosenTab} />
-      <div className={styles['filter-block__content']}>{content}</div>
-      <TagsBar setTab={setChosenTab} tagsList={tagsList} />
+    <div className={styles.container}>
+      <div data-testid="filter-block" className={styles['filter-block']}>
+        <FilterTabs setChosenTab={setChosenTab} chosenTab={chosenTab} />
+        <div className={styles['filter-block__content']}>{content}</div>
+        <TagsBar setTab={setChosenTab} tagsList={tagsList} />
+      </div>
     </div>
   );
 };

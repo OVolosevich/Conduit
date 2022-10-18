@@ -2,10 +2,15 @@
     display: flex;
     padding: 20px;
     align-items: center;
-    cursor: pointer;
+    column-gap: 10px;
 }
 
 .filter-tabs__item {
     padding: 10px;
-
+    outline: none;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    border: 2px solid var(--main-dark); 
+    color: var(--main-dark);
+    background-color: transparent;
+    cursor: pointer;
 }

@@ -1,6 +1,6 @@
 .banner {
 	width: 100%;
-	height: 200px;
+	height: 30vh;
 	border: 1px solid var(--main-dark);
 	border-radius: 55px 225px 15px 25px/25px 25px 35px 355px;
 	display: flex;

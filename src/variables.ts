@@ -53,10 +53,10 @@ export const unregisteredGuestData: UserInterfaceData = {
 };
 
 export const tagsList: string[] = [
-  'welcome',
-  'implementations',
-  'codebaseShow',
-  'introduction',
+  'voluptate',
+  'error',
+  'sapiente',
+  'sed',
 ];
 
 export const modalTextContent: ModalContent = {

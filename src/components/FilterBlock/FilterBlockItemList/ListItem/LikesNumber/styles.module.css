@@ -14,7 +14,7 @@
 }
 
 .list-item__likes-number-container:hover {
-	background-color: var(--main-grey);
+	background-color: var(--main-dark-grey);
 	color: var(--main-white)
 }
 

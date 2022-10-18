@@ -43,9 +43,11 @@ const Input: React.FC<InputProps> = (props: InputProps) => {
   };
   return (
     <fieldset className={styles.fieldset}>
-      <label htmlFor={labelId}>{label}</label>
+      <label className={styles.fieldset__label} htmlFor={labelId}>
+        {label}
+      </label>
       <input
-        className={styles.input}
+        className={styles.fieldset__input}
         id={labelId}
         type={type}
         name={name}
@@ -53,6 +55,7 @@ const Input: React.FC<InputProps> = (props: InputProps) => {
         onChange={(e) => setValue(name, e.target.value)}
         onBlur={(e) => onBlur(e)}
         onFocus={onFocus}
+        placeholder={label}
       />
     </fieldset>
   );

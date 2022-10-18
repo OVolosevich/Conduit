@@ -2,9 +2,34 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 0;
+  padding: 5px 0;
 }
 
-.input {
+.fieldset__input {
   width: 80%;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  line-height: 1.2rem;
+  padding: 5px 10px;
+  border: 3px solid var(--main-dark-grey);
+  font-family: var(--font-default);
+}
+
+.fieldset__input::-webkit-input-placeholder {
+  font-family: var(--font-default);
+  letter-spacing: 1px;
+  color: var(--main-grey);
+
+}
+
+.fieldset__input:-moz-placeholder {
+  font-family: var(--font-default);
+  letter-spacing: 1px;
+}
+
+.fieldset__label {
+  /* font-weight: 600; */
+  letter-spacing: 2px;
+  font-size: 1.1rem;
 }

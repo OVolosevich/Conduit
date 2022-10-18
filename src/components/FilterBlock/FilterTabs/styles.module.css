@@ -17,6 +17,6 @@
 }
 
 .filter-tabs__item:hover {
-    background-color: var(--main-grey);
+    background-color: var(--main-dark-grey);
     color: var(--main-white);
 }

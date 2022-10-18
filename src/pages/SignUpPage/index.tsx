@@ -13,6 +13,8 @@ import {
   resetForm,
 } from '../../../store/slices/SignUpSlice';
 import Modal from '../../components/Modal';
+import PageTitle from '../../components/PageTitle';
+import Button from '../../components/Button';
 
 const SignUpPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -56,6 +58,7 @@ const SignUpPage: React.FC = () => {
   };
   return (
     <>
+      <PageTitle text="Sign up" />
       <form
         onSubmit={(event) => onSubmit(event, userInfo)}
         className={styles.form}
@@ -71,7 +74,11 @@ const SignUpPage: React.FC = () => {
           />
         ))}
         <div>{errors}</div>
-        <button type="submit">Sign Up</button>
+        <Button
+          isSubmit
+          text="Sign Up"
+          className={styles['form__submit-btn']}
+        />
       </form>
       <div>
         {showModal && (

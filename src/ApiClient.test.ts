@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import assert from 'assert';
-import ApiClient from '../../ApiClient';
+import ApiClient from './ApiClient';
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
@@ -10,20 +10,16 @@ describe('ApiClient.registerUser', () => {
     jest.clearAllMocks();
   });
 
-  it('returns a user object', async () => {
-    const user = {
-      username: 'username',
-      email: 'email',
-      password: 'password',
-      token: 'token',
-      image: null,
-      bio: null,
+  it('returns a object with success flag and message', async () => {
+    const expectedResponse = {
+      success: true,
+      message: 'success',
     };
 
     mockedAxios.post.mockResolvedValueOnce({
       status: 200,
       data: {
-        user,
+        expectedResponse,
       },
     });
 
@@ -33,8 +29,7 @@ describe('ApiClient.registerUser', () => {
       password: 'password',
     });
 
-    expect(mockedAxios.post).toHaveBeenCalledTimes(1);
-    expect(result).toEqual(user);
+    expect(result).toEqual(expectedResponse);
   });
 
   it('throws an error if user info is empty', async () => {

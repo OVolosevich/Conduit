@@ -4,7 +4,9 @@ interface ButtonProps {
   isSubmit?: boolean;
   text: string;
   className?: string;
-  onClick?: () => void;
+  onClick?: (event?:
+  | React.MouseEvent<HTMLDivElement, MouseEvent>
+  | React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const Button: React.FC<ButtonProps> = (props) => {

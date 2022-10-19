@@ -9,7 +9,7 @@
   backdrop-filter: blur(5px);
 }
 
-.modal__container {
+.modal__content-container {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -17,23 +17,67 @@
   height: 300px;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  color: black;
+  color: var(--main-dark);
   display: grid;
   place-items: center;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  border: 2px solid var(--main-dark);
 }
 
 .modal__close-btn {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 20px;
-  height: 20px;
-  line-height: 100%;
+  right: 30px;
+  top: 20px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 25px;
   border: 0;
   background-color: transparent;
   cursor: pointer;
+  border: 2px solid var(--main-dark);
+  border-radius: 50%;
+  font-family: var(--font-default);
+  transition: all 0.2s;
+}
+
+.modal__close-btn:hover {
+  background-color: var(--main-dark-grey);
+  color: var(--main-white)
 }
 
 .modal__confirm-btn {
   cursor: pointer;
+  background-color: transparent;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  border: 2px solid var(--main-dark);
+  font-family: var(--font-default);
+  line-height: 2rem;
+  width: 30%;
+  transition: all 0.2s;
+}
+
+.modal__confirm-btn:hover {
+  background-color: var(--main-dark-grey);
+  color: var(--main-white)
+}
+
+.modal__title-success {
+  font-size: 2rem;
+  font-family: var(--font-for-heading);
+  color: var(--main-green);
+}
+
+.modal__title-failure {
+  font-size: 2rem;
+  font-family: var(--font-for-heading);
+  color: var(--main-red);
+}
+
+.modal__message {
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.2rem;
 }

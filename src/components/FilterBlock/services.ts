@@ -2,7 +2,7 @@ import { ArticleItem } from '../../Shared';
 
 const getFilteredArticles = (
   allArticles: ArticleItem[],
-  activeTab: string,
+  activeTab = 'global feed',
 ): ArticleItem[] => {
   if (activeTab === 'global feed') {
     return [...allArticles];

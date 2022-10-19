@@ -22,6 +22,7 @@
 	background-color: transparent;
 	cursor: pointer;
 	transition: all 0.2s;
+	font-family: var(--font-default);
 }
 
 .tags-bar__item:hover {

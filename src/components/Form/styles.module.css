@@ -1,0 +1,32 @@
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 10px;
+}
+
+.form__submit-btn {
+  padding: 5px 0;
+  width: 100%;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  border: 3px solid var(--main-green);
+  color: var(--main-green);
+  background-color: transparent;
+  line-height: 2.2rem;
+  font-family: var(--font-for-heading);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.form__submit-btn:hover {
+  background-color: var(--main-green);
+  color: var(--main-white);
+}
+
+.form__errors {
+  min-height: 60px;
+}

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Input from '../../components/Input';
-import styles from './styles.module.css';
 import { unregisteredGuestData } from '../../variables';
 import { AppDispatch, RootState } from '../../../store/state';
 import { getOnChangeHandler, registerUser, isAnyInputEmpty } from './services';
@@ -14,7 +12,7 @@ import {
 } from '../../../store/slices/SignUpSlice';
 import Modal from '../../components/Modal';
 import PageTitle from '../../components/PageTitle';
-import Button from '../../components/Button';
+import Form from '../../components/Form';
 
 const SignUpPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -59,36 +57,22 @@ const SignUpPage: React.FC = () => {
   return (
     <>
       <PageTitle text="Sign up" />
-      <form
-        onSubmit={(event) => onSubmit(event, userInfo)}
-        className={styles.form}
-      >
-        {unregisteredGuestData.formInputs.map((item) => (
-          <Input
-            key={item.labelId}
-            setValue={onChange}
-            value={userInfo[item.name]}
-            item={item}
-            setError={setError}
-            removeError={removeError}
-          />
-        ))}
-        <div>{errors}</div>
-        <Button
-          isSubmit
-          text="Sign Up"
-          className={styles['form__submit-btn']}
-        />
-      </form>
-      <div>
-        {showModal && (
-          <Modal
-            onClose={() => setShowModal(false)}
-            modal="signUp"
-            option={isSuccess ? 'success' : 'failure'}
-          />
-        )}
-      </div>
+      <Form
+        removeError={removeError}
+        setError={setError}
+        onChange={onChange}
+        onSubmit={onSubmit}
+        userInfo={userInfo}
+        inputs={unregisteredGuestData.formInputs}
+        errors={errors}
+      />
+      {showModal && (
+      <Modal
+        onClose={() => setShowModal(false)}
+        modal="signUp"
+        option={isSuccess ? 'success' : 'failure'}
+      />
+      )}
     </>
   );
 };

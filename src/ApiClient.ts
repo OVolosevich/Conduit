@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { ArticleItem, RegisterUserResponse, UserInfo } from './Shared';
+import { getDefaultServerErrorText } from './variables';
 
 class ApiClient {
   static api_base = 'https://api.realworld.io/api/';
@@ -9,7 +10,7 @@ class ApiClient {
     if (response.status === 200) {
       return response.data.articles;
     }
-    throw new Error(response.status.toString());
+    throw new Error(getDefaultServerErrorText(response.status));
   };
 
   static registerUser = async (
@@ -23,7 +24,7 @@ class ApiClient {
           message: 'success',
         };
       }
-      throw new Error('registerUser fn fails');
+      throw new Error(getDefaultServerErrorText(response.status));
     } catch (error) {
       if (error instanceof AxiosError) {
         return {

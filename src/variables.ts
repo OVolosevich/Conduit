@@ -85,3 +85,5 @@ export const modalTextContent: ModalContent = {
     },
   },
 };
+
+export const getDefaultServerErrorText = (errorcode: number): string => `Something went wrong! Response status is ${errorcode}.`;

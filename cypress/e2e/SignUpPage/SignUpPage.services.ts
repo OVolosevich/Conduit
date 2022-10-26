@@ -1,4 +1,4 @@
-import { UserInfo } from '../../src/Shared';
+import { UserInfo } from 'src/Shared';
 
 export const fillForm = (formdata: UserInfo): void => {
   cy.get('input[name="username"]').type(formdata.name);
@@ -7,14 +7,13 @@ export const fillForm = (formdata: UserInfo): void => {
 };
 
 export const submitForm = (option: string): void => {
-  const submitBtn = cy.contains('Sign Up');
   switch (option) {
     case 'success':
       cy.intercept('POST', 'https://api.realworld.io/api/users', {
         statusCode: 200,
         message: 'success',
       }).as('successfulSignUp');
-      submitBtn.click();
+      cy.contains('Sign Up').click();
       cy.wait('@successfulSignUp');
       break;
     case 'failure':
@@ -22,7 +21,7 @@ export const submitForm = (option: string): void => {
         statusCode: 422,
         errors: 'data is not unique',
       }).as('dataIsNotUniqueError');
-      submitBtn.click();
+      cy.contains('Sign Up').click();
       cy.wait('@dataIsNotUniqueError');
       break;
     default:

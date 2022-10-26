@@ -17,6 +17,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
+    "plugin:cypress/recommended"
   ],
   rules: {
     "indent": "off",

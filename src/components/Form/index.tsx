@@ -11,7 +11,7 @@ interface FormProps {
   removeError: (inputName: string) => void;
   userInfo: UserInfo;
   inputs: InputInterface[];
-  errors: JSX.Element[]
+  errors: JSX.Element[],
 }
 
 const Form: React.FC<FormProps> = (props) => {

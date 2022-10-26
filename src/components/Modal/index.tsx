@@ -15,7 +15,9 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = (props) => {
   const { onClose, modal, option } = props;
-  const { message, title, buttonText } = getModalContent(modal, option);
+  const {
+    message, title, buttonText, testId,
+  } = getModalContent(modal, option);
   const clickHandler = (
     event?:
     | React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -33,6 +35,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const titleClass = option === 'success' ? styles['modal__title-success'] : styles['modal__title-failure'];
   return (
     <div
+      data-test-id={testId}
       tabIndex={0}
       role="dialog"
       className={styles.modal}

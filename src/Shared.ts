@@ -64,6 +64,7 @@ type ModalText = {
   message: string;
   title: string;
   buttonText: string;
+  testId: string;
 };
 
 interface ModalCases {

@@ -52,12 +52,7 @@ export const unregisteredGuestData: UserInterfaceData = {
   emptyFormError: 'Fill in form to sign up',
 };
 
-export const tagsList: string[] = [
-  'voluptate',
-  'error',
-  'sapiente',
-  'sed',
-];
+export const tagsList: string[] = ['voluptate', 'error', 'sapiente', 'sed'];
 
 export const modalTextContent: ModalContent = {
   signUp: {
@@ -65,11 +60,13 @@ export const modalTextContent: ModalContent = {
       title: 'Welcome!',
       message: "You've registered successfully.",
       buttonText: 'OK',
+      testId: 'successSignUp',
     },
     failure: {
       title: 'Oops!',
       message: 'Something went wrong! Please try again later',
       buttonText: 'OK',
+      testId: 'failureSignUp',
     },
   },
   signIn: {
@@ -77,11 +74,13 @@ export const modalTextContent: ModalContent = {
       title: 'Welcome!',
       message: "You've registered successfully.",
       buttonText: 'OK',
+      testId: 'successSignIn',
     },
     failure: {
       title: 'Oops!',
       message: 'Something went wrong! Please try again later',
       buttonText: 'OK',
+      testId: 'failureSignIn',
     },
   },
 };

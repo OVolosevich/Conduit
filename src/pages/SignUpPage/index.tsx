@@ -35,7 +35,11 @@ const SignUpPage: React.FC = () => {
     dispatch(action(value));
   };
 
-  const errors = formErrors.map((item) => <p key={item}>{item}</p>);
+  const errors = formErrors.map((item) => (
+    <p className="error" key={item}>
+      {item}
+    </p>
+  ));
   const hasErrors = formErrors.length !== 0;
 
   const onSubmit = async (
@@ -67,11 +71,11 @@ const SignUpPage: React.FC = () => {
         errors={errors}
       />
       {showModal && (
-      <Modal
-        onClose={() => setShowModal(false)}
-        modal="signUp"
-        option={isSuccess ? 'success' : 'failure'}
-      />
+        <Modal
+          onClose={() => setShowModal(false)}
+          modal="signUp"
+          option={isSuccess ? 'success' : 'failure'}
+        />
       )}
     </>
   );

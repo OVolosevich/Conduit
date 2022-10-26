@@ -6,7 +6,7 @@ export const fillForm = (formdata: UserInfo): void => {
   cy.get('input[name="password"]').type(formdata.password);
 };
 
-export const submitForm = (option: string): void => {
+export const submitFilledForm = (option: string): void => {
   switch (option) {
     case 'success':
       cy.intercept('POST', 'https://api.realworld.io/api/users', {
@@ -31,4 +31,14 @@ export const submitForm = (option: string): void => {
 
 export const assertModalOpen = (modalTestId: string): void => {
   cy.get(`[data-test-id="${modalTestId}"]`).should('be.visible');
+};
+
+export const checkFormEmpty = (): void => {
+  cy.get('input[name="username"]').should('have.value', '');
+  cy.get('input[name="email"]').should('have.value', '');
+  cy.get('input[name="password"]').should('have.value', '');
+};
+
+export const assertFormError = (error: string): void => {
+  cy.contains(error).should('be.visible');
 };
